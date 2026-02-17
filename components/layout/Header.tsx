@@ -13,10 +13,12 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
   const totalItems = useCart(state => state.getItemCount())
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
@@ -34,25 +36,25 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-forge-darker/95 backdrop-blur-lg border-b border-forge-teal/20 shadow-lg shadow-forge-teal/5'
-        : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md border-b border-black/5 py-4 shadow-sm'
+        : 'bg-transparent py-8'
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <Logo />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-all duration-300 hover:text-forge-teal ${pathname === link.href
-                  ? 'text-forge-teal'
-                  : 'text-white/80'
+                className={`text-[10px] font-bold tracking-[0.4em] uppercase transition-luxury hover:text-forge-red ${pathname === link.href
+                  ? 'text-forge-red border-b-2 border-forge-red pb-1'
+                  : 'text-black/60 hover:text-black'
                   }`}
               >
                 {link.label}
@@ -61,35 +63,26 @@ export default function Header() {
           </nav>
 
           {/* Right Side Icons */}
-          <div className="flex items-center gap-4">
-            {/* Search Icon */}
+          <div className="flex items-center gap-6">
             <button
-              className="p-2 rounded-full hover:bg-forge-teal/10 transition-colors"
-              aria-label="Search"
-            >
-              <Search size={20} className="text-white/80 hover:text-forge-teal transition-colors" />
-            </button>
-
-            {/* User Icon */}
-            <button
-              className="p-2 rounded-full hover:bg-forge-teal/10 transition-colors"
+              className="p-2 transition-luxury text-black/60 hover:text-black"
               aria-label="Account"
             >
-              <User size={20} className="text-white/80 hover:text-forge-teal transition-colors" />
+              <User size={18} />
             </button>
 
             {/* Cart Icon */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 rounded-full hover:bg-forge-teal/10 transition-colors"
+              className="relative p-2 transition-luxury text-black/60 hover:text-black"
               aria-label="Shopping Cart"
             >
-              <ShoppingCart size={20} className="text-white/80 hover:text-forge-teal transition-colors" />
-              {totalItems > 0 && (
+              <ShoppingCart size={18} />
+              {mounted && totalItems > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-gradient-to-r from-forge-teal to-forge-magenta text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                  className="absolute -top-1 -right-1 bg-forge-red text-white text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center"
                 >
                   {totalItems}
                 </motion.span>
@@ -98,14 +91,14 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-full hover:bg-forge-teal/10 transition-colors"
+              className="md:hidden p-2 transition-luxury text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
               {isMenuOpen ? (
-                <X size={24} className="text-white" />
+                <X size={24} />
               ) : (
-                <Menu size={24} className="text-white" />
+                <Menu size={24} />
               )}
             </button>
           </div>
@@ -116,24 +109,33 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-forge-darker/98 backdrop-blur-lg border-t border-forge-teal/20"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden fixed inset-0 top-0 bg-white z-[100] flex flex-col justify-center items-center"
           >
-            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
-              {navLinks.map(link => (
-                <Link
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-8 right-8 text-black p-2"
+            >
+              <X size={32} />
+            </button>
+            <nav className="flex flex-col items-center space-y-12">
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-lg font-medium tracking-wide transition-all duration-300 hover:text-forge-teal hover:translate-x-2 ${pathname === link.href
-                    ? 'text-forge-teal'
-                    : 'text-white/80'
-                    }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`text-2xl font-bold tracking-[0.4em] uppercase ${pathname === link.href ? 'text-forge-red' : 'text-black'}`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>

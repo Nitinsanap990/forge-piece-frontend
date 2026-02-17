@@ -9,32 +9,37 @@ export default function FeaturedProducts() {
   const featuredProducts = products.filter(p => p.featured).slice(0, 6)
 
   return (
-    <section className="py-20 relative">
+    <section className="py-32 relative bg-white overflow-hidden subtle-grain border-y border-black/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-24"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-forge-magenta to-forge-purple bg-clip-text text-transparent">
-              Featured Drops
+          <div className="flex flex-col items-center gap-6">
+            <span className="text-[11px] font-black tracking-[0.5em] text-forge-red uppercase">
+              Curated Selection
             </span>
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Premium streetwear designs that forge your story. Each piece is a statement.
-          </p>
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-black uppercase leading-[0.8]">
+              FEATURED DROPS
+            </h2>
+            <div className="h-0.5 w-16 bg-forge-red"></div>
+            <p className="text-forge-grey text-lg sm:text-xl max-w-xl mx-auto leading-relaxed font-light italic">
+              Meticulously forged streetwear engineering. <br />
+              <span className="text-black font-bold uppercase not-italic text-sm tracking-widest">200 GSM Premium Cotton • Heavyweight Standard</span>
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {featuredProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
               <ProductCard product={product} />
@@ -47,11 +52,11 @@ export default function FeaturedProducts() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-24"
         >
           <Link href="/shop">
-            <button className="btn-primary px-8 py-4 rounded-full">
-              View All Products
+            <button className="px-16 py-6 bg-black text-white text-[10px] font-black uppercase tracking-[0.4em] hover:bg-forge-red transition-luxury shadow-2xl shadow-black/20 hover:shadow-forge-red/30 active:scale-95">
+              Discover Full Collection
             </button>
           </Link>
         </motion.div>

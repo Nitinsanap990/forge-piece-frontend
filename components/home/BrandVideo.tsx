@@ -5,27 +5,26 @@ import { Play } from 'lucide-react'
 
 export default function BrandVideo() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-forge-teal to-forge-magenta bg-clip-text text-transparent">
-              Experience the Forge
-            </span>
+          <span className="text-[10px] font-black tracking-[0.6em] text-forge-red uppercase mb-4 block">Cinematic Experience</span>
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-black leading-[0.8]">
+            EXPERIENCE <br /> THE <span className="text-forge-red">FORGE</span>
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Watch our cinematic journey from concept to creation
+          <p className="text-forge-grey text-lg max-w-2xl mx-auto font-light italic">
+            Visualizing the engineering journey from textile concept to urban masterpiece.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Video 1: Vintage 1980s Style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-24">
+          {/* Video 1: Vintage Style */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -33,39 +32,29 @@ export default function BrandVideo() {
             viewport={{ once: true }}
             className="relative group"
           >
-            <div className="relative aspect-video bg-gradient-to-br from-forge-dark to-forge-darker rounded-lg overflow-hidden neon-border card-hover">
-              {/* Placeholder for video */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-forge-teal/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-forge-teal/50 group-hover:bg-forge-teal/40 transition-all duration-300">
-                    <Play size={32} className="text-forge-teal ml-1" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-lg mb-1">Vintage Era</h3>
-                    <p className="text-white/60 text-sm">1980s TV Commercial Style</p>
+            <div className="relative aspect-video bg-forge-bone overflow-hidden border border-black/5 shadow-xl group-hover:shadow-2xl transition-luxury">
+              {/* Image Placeholder */}
+              <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 bg-[url('/products/architect.jpg')] bg-cover bg-center opacity-40"></div>
+
+              <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-transparent transition-luxury">
+                <div className="text-center space-y-6">
+                  <div className="w-20 h-20 mx-auto bg-forge-red text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-luxury">
+                    <Play size={40} className="ml-1" />
                   </div>
                 </div>
               </div>
-
-              {/* CRT Effect Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent crt-effect pointer-events-none"></div>
-
-              {/* Scanlines */}
-              <div
-                className="absolute inset-0 pointer-events-none opacity-10"
-                style={{
-                  backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,217,255,0.3) 2px, rgba(0,217,255,0.3) 4px)',
-                }}
-              ></div>
             </div>
 
-            <div className="mt-4 space-y-2">
-              <h4 className="text-white font-semibold">Classic Forge Intro</h4>
-              <p className="text-white/60 text-sm">Dark studio, CRT TV, analog glitches. A nostalgic journey through time.</p>
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 bg-black text-white text-[9px] font-black uppercase tracking-widest">Legacy</span>
+                <h4 className="text-black font-black uppercase text-xl tracking-tighter">Vintage Intro</h4>
+              </div>
+              <p className="text-forge-grey text-base font-light leading-relaxed">A nostalgic analog journey through the early textile printing presses of Mumbai.</p>
             </div>
           </motion.div>
 
-          {/* Video 2: Gen Z Style */}
+          {/* Video 2: Modern Style */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,27 +62,25 @@ export default function BrandVideo() {
             viewport={{ once: true }}
             className="relative group"
           >
-            <div className="relative aspect-video bg-gradient-to-br from-forge-dark to-forge-darker rounded-lg overflow-hidden neon-border card-hover">
-              {/* Placeholder for video */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-                <div className="text-center space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-forge-magenta/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-forge-magenta/50 group-hover:bg-forge-magenta/40 transition-all duration-300">
-                    <Play size={32} className="text-forge-magenta ml-1" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-bold text-lg mb-1">Gen Z Edition</h3>
-                    <p className="text-white/60 text-sm">Holographic Display & Neon</p>
+            <div className="relative aspect-video bg-forge-bone overflow-hidden border border-black/5 shadow-xl group-hover:shadow-2xl transition-luxury">
+              {/* Image Placeholder */}
+              <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700 bg-[url('/products/architect.jpg')] bg-cover bg-center opacity-40"></div>
+
+              <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-transparent transition-luxury">
+                <div className="text-center space-y-6">
+                  <div className="w-20 h-20 mx-auto bg-black text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-luxury">
+                    <Play size={40} className="ml-1" />
                   </div>
                 </div>
               </div>
-
-              {/* Holographic Effect */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-forge-teal/10 via-transparent to-forge-magenta/10 pointer-events-none"></div>
             </div>
 
-            <div className="mt-4 space-y-2">
-              <h4 className="text-white font-semibold">Future Forge Vision</h4>
-              <p className="text-white/60 text-sm">Holographic display, neon lights, digital glitches. The future of streetwear.</p>
+            <div className="mt-8 space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 bg-forge-red text-white text-[9px] font-black uppercase tracking-widest">Future</span>
+                <h4 className="text-black font-black uppercase text-xl tracking-tighter">Innovation Loop</h4>
+              </div>
+              <p className="text-forge-grey text-base font-light leading-relaxed">High-definition micro-details of 200 GSM construction and precision stitching.</p>
             </div>
           </motion.div>
         </div>
@@ -102,69 +89,36 @@ export default function BrandVideo() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 1, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-12 max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
         >
-          <div className="relative aspect-video bg-[#050505] rounded-lg overflow-hidden border border-white/5 shadow-2xl shadow-forge-gold/5 forged-metal">
-            {/* Overlay for cinematic feel */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10"></div>
+          <div className="relative aspect-[21/9] bg-forge-bone overflow-hidden border border-black/5 shadow-2xl flex items-center justify-center p-12 group">
+            <div className="absolute inset-0 subtle-grain opacity-30"></div>
 
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="text-center space-y-6 px-12">
-                <motion.div
-                  animate={{
-                    textShadow: [
-                      '0 0 20px rgba(255, 215, 0, 0)',
-                      '0 0 30px rgba(255, 215, 0, 0.5)',
-                      '0 0 20px rgba(255, 215, 0, 0)',
-                    ],
-                  }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="space-y-2"
-                >
-                  <span className="text-forge-gold font-display tracking-[0.8em] text-xs uppercase opacity-70">Coming Soon Teaser</span>
-                  <h3 className="text-5xl md:text-7xl font-bold cinematic-text tracking-tighter">
-                    THE FORGE
-                  </h3>
-                </motion.div>
-
-                <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto font-light leading-relaxed">
-                  A muscular blacksmith in a dimly lit forge hammering a t-shirt in ultra slow-motion. Witness the glowing logo reveal as the metal cools. <br />
-                  <span className="text-forge-teal font-medium mt-2 block italic italic">&quot;We are forging a mindset, not just a fit.&quot;</span>
-                </p>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  className="px-8 py-3 bg-white/5 border border-white/10 text-white font-display text-xs tracking-widest uppercase hover:bg-white/10 transition-colors"
-                >
-                  Notify Me of the Drop
-                </motion.button>
+            <div className="relative z-20 text-center space-y-8 max-w-3xl">
+              <div className="space-y-4">
+                <span className="text-forge-red font-black tracking-[0.8em] text-[10px] uppercase opacity-80 block">Coming Soon Teaser</span>
+                <h3 className="text-6xl md:text-8xl font-black text-black tracking-tighter uppercase leading-[0.8]">
+                  THE <span className="group-hover:text-forge-red transition-luxury">PROCESS</span>
+                </h3>
               </div>
+
+              <p className="text-forge-grey text-lg font-light leading-relaxed italic">
+                Witness the transformation of raw cotton into a forged masterpiece. <br />
+                <span className="text-black font-bold uppercase not-italic text-sm tracking-[0.2em] block mt-4">&quot;Master the Forge. Piece by Piece.&quot;</span>
+              </p>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="px-12 py-5 bg-black text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-forge-red transition-luxury shadow-xl"
+              >
+                Notify Me of the Drop
+              </motion.button>
             </div>
 
-            {/* Ember effects */}
-            {[...Array(10)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="ember absolute"
-                style={{
-                  left: `${20 + Math.random() * 60}%`,
-                  bottom: '0',
-                }}
-                animate={{
-                  y: [0, -200],
-                  opacity: [0, 1, 0],
-                  scale: [1, 0.3],
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 4,
-                  ease: 'easeOut',
-                }}
-              />
-            ))}
+            {/* Symbolic Elements */}
+            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-forge-red/5 rounded-full blur-3xl group-hover:bg-forge-red/10 transition-luxury"></div>
           </div>
         </motion.div>
       </div>

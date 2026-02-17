@@ -30,108 +30,108 @@ const posts = [
 
 export default function BlogPage() {
     return (
-        <div className="min-h-screen pt-32 pb-20">
+        <div className="min-h-screen pt-40 pb-32 bg-white subtle-grain">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="space-y-4 mb-16">
-                    <motion.h1
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter"
-                    >
-                        THE <span className="text-forge-teal">PULSE</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-white/40 max-w-xl font-light italic"
-                    >
-                        Deep dives into design, culture, and the art of forging a mindset.
-                    </motion.p>
+                <div className="flex flex-col items-center gap-8 mb-24 text-center">
+                    <span className="text-[10px] font-black tracking-[0.5em] text-forge-red uppercase">
+                        Brand Perspectives
+                    </span>
+                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-black uppercase leading-[0.8]">
+                        THE <span className="text-forge-red">PULSE</span>
+                    </h1>
+                    <div className="h-px w-12 bg-black/10"></div>
+                    <p className="text-forge-grey max-w-xl text-lg font-light leading-relaxed">
+                        Thought pieces on design, urban culture, and the technical craft of forging streetwear in the heart of Mumbai.
+                    </p>
                 </div>
 
                 {/* Featured Post */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="relative aspect-[21/9] bg-[#080808] rounded-2xl border border-white/5 overflow-hidden mb-12 group"
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative aspect-[21/9] bg-forge-bone border border-black/5 overflow-hidden mb-20 group shadow-xl"
                 >
-                    <div className="absolute inset-0 scanlines opacity-20 z-10 pointer-events-none"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-20"></div>
+                    <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-black/5 transition-luxury"></div>
 
                     {/* Image Content */}
                     <Image
                         src="/products/architect.jpg"
                         alt="Featured Manifesto"
                         fill
-                        className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
+                        className="object-cover transition-luxury grayscale hover:grayscale-0 opacity-90"
+                        priority
                     />
 
-                    <div className="absolute bottom-8 left-8 right-8 z-30 space-y-4">
-                        <div className="flex items-center gap-3">
-                            <span className="px-3 py-1 bg-forge-teal text-forge-dark text-[10px] font-bold font-display tracking-widest uppercase">Featured Release</span>
-                            <span className="text-white/40 text-[10px] uppercase tracking-widest">5 Min Read</span>
+                    <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-20">
+                        <div className="max-w-4xl space-y-6">
+                            <div className="flex items-center gap-4">
+                                <span className="px-5 py-2 bg-forge-red text-white text-[10px] font-black tracking-[0.3em] uppercase shadow-lg">Manifesto</span>
+                                <span className="text-black/40 text-[10px] uppercase font-black tracking-[0.3em]">Special Issue 01</span>
+                            </div>
+                            <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85] drop-shadow-2xl">
+                                WE ARE FORGING A MINDSET, <br /> NOT JUST A FIT.
+                            </h2>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-tighter leading-none group-hover:text-forge-teal transition-colors">
-                            WE ARE FORGING A MINDSET, <br /> NOT JUST A FIT.
-                        </h2>
                     </div>
                 </motion.div>
 
                 {/* Grid Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-32">
                     {posts.map((post, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
+                            transition={{ delay: i * 0.1, duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="bg-white/[0.02] border border-white/5 rounded-xl overflow-hidden hover:bg-white/[0.04] transition-all group"
+                            className="bg-white border border-black/5 overflow-hidden hover:border-black/10 transition-luxury group shadow-sm hover:shadow-xl"
                         >
-                            <div className="aspect-video bg-[#0a0a0a] relative flex items-center justify-center overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-forge-teal/10 to-transparent"></div>
-                                <div className="text-white/10 group-hover:scale-110 transition-transform">
+                            <div className="aspect-video bg-forge-bone relative flex items-center justify-center overflow-hidden">
+                                <div className="text-black/5 group-hover:scale-125 group-hover:text-forge-red transition-luxury">
                                     {post.icon}
                                 </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-luxury"></div>
                             </div>
-                            <div className="p-8 space-y-4">
+                            <div className="p-10 space-y-6">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-forge-teal text-[10px] font-display font-extrabold tracking-widest uppercase">{post.category}</span>
-                                    <span className="text-white/20 text-[10px] uppercase tracking-widest">{post.date}</span>
+                                    <span className="text-forge-red text-[10px] font-black tracking-[0.3em] uppercase border-b-2 border-forge-red pb-1">{post.category}</span>
+                                    <span className="text-forge-grey text-[10px] font-black tracking-[0.3em] uppercase">{post.date}</span>
                                 </div>
-                                <h3 className="text-xl font-display font-bold uppercase tracking-tight group-hover:text-forge-teal transition-colors leading-tight">
+                                <h3 className="text-2xl font-black tracking-tight text-black uppercase group-hover:text-forge-red transition-colors leading-tight">
                                     {post.title}
                                 </h3>
-                                <p className="text-white/40 text-xs leading-relaxed font-light">
+                                <p className="text-forge-grey text-base leading-relaxed font-light">
                                     {post.desc}
                                 </p>
-                                <button className="text-[10px] text-white/60 font-display font-bold uppercase tracking-[0.3em] flex items-center gap-2 group-hover:text-forge-magenta transition-colors pt-4">
-                                    Read Story <Play size={10} className="fill-current" />
+                                <button className="text-[10px] text-black font-black uppercase tracking-[0.4em] flex items-center gap-3 border-b-2 border-transparent hover:border-forge-red hover:text-forge-red transition-all pt-4">
+                                    Read Article <Play size={10} className="fill-current" />
                                 </button>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Slang Dictionary Highlight */}
-                <div className="p-12 md:p-20 rounded-3xl bg-[#080808] border border-white/5 relative overflow-hidden forged-metal">
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forge-magenta/5 to-transparent pointer-events-none"></div>
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-display font-bold uppercase tracking-tighter">THE SLANG <br /> <span className="text-forge-magenta">DICTIONARY</span></h2>
-                            <p className="text-white/50 text-base leading-relaxed font-light max-w-md">
-                                Understanding the culture behind the fits. From the ballroom scenes of NY to the gaming dens of Mumbai.
+                {/* Culture Dictionary Section */}
+                <div className="py-24 px-8 md:px-20 bg-forge-bone border border-black/5 relative overflow-hidden shadow-inner">
+                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <div className="space-y-8">
+                            <span className="text-[10px] font-black tracking-[0.5em] text-forge-red uppercase">Vernacular</span>
+                            <h2 className="text-5xl md:text-6xl font-black text-black uppercase tracking-tighter leading-[0.85]">
+                                THE SLANG <br /> <span className="text-forge-grey">DICTIONARY</span>
+                            </h2>
+                            <p className="text-forge-grey text-xl leading-relaxed font-light max-w-md">
+                                Decoding the language of the forge. Understanding the mindset shared from ballroom scenes to global urban culture.
                             </p>
-                            <button className="px-8 py-3 border border-forge-magenta text-forge-magenta text-[10px] font-display font-bold uppercase tracking-widest hover:bg-forge-magenta hover:text-white transition-all rounded-sm">
-                                Explore Glossary
+                            <button className="px-12 py-5 bg-black text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-forge-red transition-luxury shadow-lg">
+                                Open Glossary
                             </button>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-8">
                             {['AURA', 'RIZZ', 'BET', 'DRIP'].map((word) => (
-                                <div key={word} className="p-6 bg-white/5 border border-white/5 rounded-lg flex flex-col items-center justify-center space-y-2 group hover:border-forge-teal/30 transition-all">
-                                    <span className="text-xl font-display font-bold tracking-tighter text-white/40 group-hover:text-forge-teal">{word}</span>
+                                <div key={word} className="p-10 bg-white border border-black/5 flex flex-col items-center justify-center space-y-2 group hover:border-forge-red transition-luxury shadow-sm hover:shadow-xl hover:scale-105">
+                                    <span className="text-3xl font-black tracking-tighter text-black/10 group-hover:text-forge-red transition-luxury">{word}</span>
                                 </div>
                             ))}
                         </div>

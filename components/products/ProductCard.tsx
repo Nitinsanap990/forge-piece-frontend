@@ -18,55 +18,40 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.div
-      whileHover={{ y: -10 }}
-      className="group relative bg-forge-darker/50 rounded-lg overflow-hidden border border-forge-teal/20 hover:border-forge-magenta/40 transition-all duration-300"
+      whileHover={{ y: -5 }}
+      className="group relative bg-white overflow-hidden border border-black/5 hover:border-black/10 transition-luxury shadow-sm"
     >
       {/* Image Container */}
       <Link href={`/shop/${product.slug}`}>
-        <div className="relative aspect-square bg-[#0a0a0a] overflow-hidden holographic">
+        <div className="relative aspect-[4/5] bg-forge-bone overflow-hidden">
           {/* Product Image */}
           {product.images && product.images[0] && (
             <Image
               src={product.images[0]}
               alt={product.name}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+              className="object-cover transition-luxury group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           )}
 
-          {/* Fallback/Overlay Branding */}
-          {!product.images?.[0] && (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center space-y-2 p-6 z-10">
-                <div className="text-7xl font-bold bg-gradient-to-r from-forge-teal to-forge-magenta bg-clip-text text-transparent opacity-80 italic">
-                  FP
-                </div>
-                <p className="text-white/40 text-[10px] uppercase tracking-[0.3em] font-display">{product.name}</p>
-              </div>
-            </div>
-          )}
-
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-forge-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="absolute bottom-4 left-4 right-4">
-              <button className="w-full btn-primary py-3 rounded-lg flex items-center justify-center gap-2">
-                <ShoppingCart size={18} />
-                Quick Add
-              </button>
-            </div>
+          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-luxury flex items-end p-6">
+            <button className="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-luxury">
+              Quick Add
+            </button>
           </div>
 
           {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2">
+          <div className="absolute top-4 left-4 flex flex-col gap-2">
             {discount > 0 && (
-              <span className="px-3 py-1 bg-forge-magenta rounded-full text-white text-xs font-bold">
+              <span className="px-3 py-1 bg-forge-red text-white text-[9px] font-black tracking-widest uppercase shadow-md">
                 {discount}% OFF
               </span>
             )}
             {product.featured && (
-              <span className="px-3 py-1 bg-forge-teal rounded-full text-forge-dark text-xs font-bold">
-                FEATURED
+              <span className="px-3 py-1 bg-black text-white text-[9px] font-bold tracking-widest uppercase">
+                New Arrival
               </span>
             )}
           </div>
@@ -77,11 +62,11 @@ export default function ProductCard({ product }: ProductCardProps) {
               e.preventDefault()
               setIsWishlisted(!isWishlisted)
             }}
-            className="absolute top-3 right-3 w-10 h-10 rounded-full bg-forge-dark/80 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-forge-teal/20 hover:border-forge-teal transition-all duration-300"
+            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-luxury"
           >
             <Heart
               size={18}
-              className={`transition-colors ${isWishlisted ? 'fill-forge-magenta text-forge-magenta' : 'text-white/60'
+              className={`transition-colors ${isWishlisted ? 'fill-forge-red text-forge-red' : 'text-black/40 hover:text-black'
                 }`}
             />
           </button>
@@ -89,58 +74,27 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Product Info */}
-      <div className="p-4 space-y-4">
-        <div>
+      <div className="p-6 space-y-4">
+        <div className="space-y-1">
           <Link href={`/shop/${product.slug}`}>
-            <h3 className="text-white font-display text-base tracking-widest uppercase hover:text-forge-teal transition-colors line-clamp-1">
+            <h3 className="text-black text-xs font-bold tracking-widest uppercase hover:text-forge-red transition-colors">
               {product.name}
             </h3>
           </Link>
-          <p className="text-white/40 text-[11px] line-clamp-1 mt-1 font-light italic">&quot;Forging a mindset, not just a fit&quot;</p>
+          <p className="text-forge-grey text-[10px] uppercase tracking-widest font-medium">100% Cotton • Heavyweight</p>
         </div>
 
-        {/* Fabric & GSM */}
-        <div className="flex items-center gap-3 font-display">
-          <span className="text-[10px] font-bold tracking-tighter px-2 py-0.5 bg-forge-teal text-forge-dark skew-x-[-12deg]">
-            {product.gsm} HEAVYWEIGHT
-          </span>
-          <span className="text-[10px] text-white/40 uppercase tracking-[0.2em]">{product.fabric}</span>
-        </div>
-
-        {/* Colors */}
-        <div className="flex items-center gap-2">
-          {product.colors.slice(0, 3).map((color, idx) => (
-            <div
-              key={idx}
-              className="w-6 h-6 rounded-full border-2 border-white/20"
-              style={{ backgroundColor: color.hex }}
-              title={color.name}
-            />
-          ))}
-          {product.colors.length > 3 && (
-            <span className="text-xs text-white/40">+{product.colors.length - 3}</span>
-          )}
-        </div>
-
-        {/* Price */}
-        <div className="flex items-center justify-between pt-2 border-t border-white/10">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white">₹{product.price}</span>
+        {/* Price & GSM */}
+        <div className="flex items-center justify-between pt-4 border-t border-black/5">
+          <div className="flex items-baseline gap-2">
+            <span className="text-sm font-black text-black">₹{product.price}</span>
             {product.mrp > product.price && (
-              <span className="text-sm text-white/40 line-through">₹{product.mrp}</span>
+              <span className="text-[10px] text-forge-grey line-through font-medium">₹{product.mrp}</span>
             )}
           </div>
-
-          {product.inStock ? (
-            <span className="text-xs text-forge-teal font-semibold">IN STOCK</span>
-          ) : (
-            <span className="text-xs text-forge-magenta font-semibold">SOLD OUT</span>
-          )}
+          <span className="text-[9px] text-forge-red font-black tracking-widest uppercase">{product.gsm}</span>
         </div>
       </div>
-
-      {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-forge-teal/0 via-forge-magenta/5 to-forge-purple/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
     </motion.div>
   )
 }

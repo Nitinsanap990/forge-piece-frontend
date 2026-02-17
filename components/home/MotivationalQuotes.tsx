@@ -28,9 +28,9 @@ const quotes = [
 
 export default function MotivationalQuotes() {
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-white">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forge-teal/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-forge-red/5 to-transparent"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -38,19 +38,18 @@ export default function MotivationalQuotes() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-forge-teal via-white to-forge-teal bg-clip-text text-transparent">
-              The Forge Mentality
-            </span>
+          <span className="text-[10px] font-black tracking-[0.6em] text-forge-red uppercase mb-4 block">The Forge Mentality</span>
+          <h2 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter text-black leading-[0.8]">
+            CRAFTING <br /> THE <span className="text-forge-red">MINDSET</span>
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Words that fuel the hustle and forge the mindset
+          <p className="text-forge-grey text-lg max-w-2xl mx-auto font-light italic">
+            Words that fuel the engineering of your daily hustle.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {quotes.map((quote, index) => (
             <motion.div
               key={index}
@@ -60,54 +59,52 @@ export default function MotivationalQuotes() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="relative p-8 rounded-lg bg-forge-dark/50 border border-forge-teal/20 backdrop-blur-sm hover:border-forge-magenta/40 transition-all duration-300 card-hover">
+              <div className="relative p-12 bg-white border border-black/5 hover:border-forge-red transition-luxury shadow-sm hover:shadow-2xl hover:-translate-y-2">
                 {/* Quote icon */}
-                <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                  <Quote size={40} className="text-forge-teal rotate-180" />
+                <div className="absolute top-6 right-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <Quote size={64} className="text-forge-red rotate-180" />
                 </div>
 
                 {/* Content */}
-                <div className="relative space-y-6">
-                  <p className="text-white text-xl md:text-2xl font-light leading-relaxed italic cinematic-text">
+                <div className="relative space-y-8">
+                  <p className="text-black text-2xl md:text-3xl font-black leading-tight uppercase tracking-tighter">
                     &ldquo;{quote.text}&rdquo;
                   </p>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                  <div className="flex items-center justify-between pt-8 border-t border-black/5">
                     <div>
-                      <p className="text-forge-teal text-xs font-display tracking-[0.2em] uppercase">{quote.author}</p>
+                      <p className="text-forge-red text-[10px] font-black tracking-[0.4em] uppercase">{quote.author}</p>
                     </div>
-                    <div className="px-4 py-1 rounded-sm bg-forge-magenta/10 border border-forge-magenta/30 holographic">
-                      <span className="text-white text-[10px] font-display font-bold tracking-[0.3em]">
+                    <div className="px-5 py-2 bg-black text-white shadow-lg">
+                      <span className="text-[10px] font-black tracking-[0.5em] uppercase">
                         {quote.slang}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-forge-teal/0 via-forge-magenta/5 to-forge-purple/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                {/* Decorative bar */}
+                <div className="absolute left-0 top-0 h-full w-1 bg-forge-red opacity-0 group-hover:opacity-100 transition-luxury"></div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Gen Z Slang Origins */}
+        {/* Brand Context */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-16 max-w-3xl mx-auto text-center"
+          className="mt-24 max-w-4xl mx-auto text-center"
         >
-          <div className="p-6 rounded-lg bg-forge-darker/80 border border-forge-purple/20 backdrop-blur-sm">
-            <h3 className="text-xl font-bold text-forge-purple mb-3">The Language of the Culture</h3>
-            <p className="text-white/60 text-sm leading-relaxed">
-              Our language is rooted in{' '}
-              <span className="text-forge-teal font-semibold">African American Vernacular English</span>,{' '}
-              <span className="text-forge-magenta font-semibold">Black and LGBTQ+ ballroom culture</span>,{' '}
-              <span className="text-forge-purple font-semibold">gaming communities</span>, and{' '}
-              <span className="text-forge-teal font-semibold">social media innovation</span>.
-              Words like rizz, aura, drip, and slay aren&apos;t just slang—they&apos;re a celebration of the communities that shaped modern culture.
+          <div className="p-12 md:p-16 bg-forge-bone border border-black/5 shadow-inner">
+            <h3 className="text-2xl font-black text-black mb-6 uppercase tracking-tighter">Verbal Engineering</h3>
+            <p className="text-forge-grey text-lg leading-relaxed font-light">
+              Our vocabulary celebrates the communities that redefined modern expression. From{' '}
+              <span className="text-black font-bold uppercase text-sm tracking-widest">Aura</span> to{' '}
+              <span className="text-black font-bold uppercase text-sm tracking-widest">Drip</span>,
+              these terms aren&apos;t just slang—they are declarations of the high-density construction we live by.
             </p>
           </div>
         </motion.div>

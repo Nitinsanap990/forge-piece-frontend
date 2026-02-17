@@ -3,12 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --forge-dark: #0a0a0a;
-  --forge-darker: #050505;
-  --forge-teal: #00d9ff;
-  --forge-magenta: #ff00ff;
-  --forge-purple: #8b00ff;
-  --forge-gold: #ffd700;
+  /* Levi's Inspired Light Theme Core */
+  --forge-white: #ffffff;
+  --forge-bone: #f8f8f8;
+  --forge-charcoal: #222222;
+  --forge-black: #000000;
+
+  /* Primary Accent: Levi's Red */
+  --brand-red: #c41230;
+  --brand-red-hover: #a00e27;
+
+  /* System Tokens */
+  --foreground: var(--forge-black);
+  --background: var(--forge-white);
+  --card-bg: var(--forge-bone);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --text-muted: #666666;
 }
 
 * {
@@ -24,157 +34,75 @@ body {
   scroll-behavior: smooth;
 }
 
-body {
-  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
-  color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+@layer base {
+  body {
+    @apply bg-white text-black antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    font-family: 'Inter', sans-serif;
+    /* Retaining font-family */
+  }
+
+  ::selection {
+    @apply bg-black text-white;
+  }
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar for Light Theme */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  @apply bg-white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00d9ff 0%, #ff00ff 100%);
-  border-radius: 5px;
+  @apply bg-black/10 hover:bg-black/20 transition-colors;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff00ff 0%, #8b00ff 100%);
+/* Minimalist Utilities */
+.premium-border {
+  border: 1px solid var(--border-color);
+  /* Updated to use new variable */
 }
 
-/* Glitch effect */
-.glitch {
+.text-balance {
+  text-wrap: balance;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Typography Enhancements */
+.font-sharp {
+  letter-spacing: -0.02em;
+}
+
+.tracking-premium {
+  letter-spacing: 0.15em;
+}
+
+/* Clean Transitions */
+.transition-luxury {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle Grain Texture */
+.subtle-grain {
   position: relative;
-  animation: glitch 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
 }
 
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch::before {
-  left: 2px;
-  text-shadow: -2px 0 #00d9ff;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-
-.glitch::after {
-  left: -2px;
-  text-shadow: -2px 0 #ff00ff, 2px 2px #00d9ff;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim {
-  0% { clip: rect(10px, 9999px, 31px, 0); }
-  10% { clip: rect(70px, 9999px, 71px, 0); }
-  20% { clip: rect(121px, 9999px, 1px, 0); }
-  30% { clip: rect(50px, 9999px, 85px, 0); }
-  40% { clip: rect(39px, 9999px, 62px, 0); }
-  50% { clip: rect(87px, 9999px, 35px, 0); }
-  60% { clip: rect(15px, 9999px, 90px, 0); }
-  70% { clip: rect(65px, 9999px, 25px, 0); }
-  80% { clip: rect(95px, 9999px, 5px, 0); }
-  90% { clip: rect(45px, 9999px, 75px, 0); }
-  100% { clip: rect(55px, 9999px, 15px, 0); }
-}
-
-@keyframes glitch-anim2 {
-  0% { clip: rect(65px, 9999px, 119px, 0); }
-  10% { clip: rect(20px, 9999px, 59px, 0); }
-  20% { clip: rect(140px, 9999px, 94px, 0); }
-  30% { clip: rect(35px, 9999px, 111px, 0); }
-  40% { clip: rect(100px, 9999px, 17px, 0); }
-  50% { clip: rect(80px, 9999px, 48px, 0); }
-  60% { clip: rect(25px, 9999px, 132px, 0); }
-  70% { clip: rect(115px, 9999px, 62px, 0); }
-  80% { clip: rect(5px, 9999px, 85px, 0); }
-  90% { clip: rect(75px, 9999px, 28px, 0); }
-  100% { clip: rect(45px, 9999px, 103px, 0); }
-}
-
-/* Glow text */
-.glow-text {
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-/* Scanline overlay */
-.scanlines::after {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  ),
-  linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.06),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.06)
-  );
-  z-index: 2;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-}
-
-/* Holographic effect */
-.holographic {
-  background-image: 
-    linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, transparent 50%, rgba(255, 0, 255, 0.1) 100%),
-    repeating-linear-gradient(0deg, rgba(0, 217, 255, 0.05) 0px, rgba(0, 217, 255, 0.05) 1px, transparent 1px, transparent 2px);
-  position: relative;
-  overflow: hidden;
-}
-
-.holographic::before {
+.subtle-grain::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  animation: shine 3s infinite;
-}
-
-@keyframes shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-/* Forged metal texture */
-.forged-metal {
-  background-color: #0a0a0a;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-blend-mode: overlay;
-  opacity: 0.8;
-}
-
-/* Cinematic text */
-.cinematic-text {
-  font-family: var(--font-outfit), sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  background: linear-gradient(to right, #00d9ff, #ff00ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5));
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
