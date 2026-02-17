@@ -15,18 +15,21 @@ const config: Config = {
       },
       colors: {
         forge: {
-          black: '#000000',
-          charcoal: '#171717',
-          darkGrey: '#262626',
-          grey: '#666666',
-          lightGrey: '#E5E5E5',
-          bone: '#f8f8f8',
-          red: '#c41230',
-          'red-hover': '#a00e27',
+          bg: '#2a2a2a',
+          surface: '#333333',
+          card: '#3a3a3a',
+          dark: '#222222',
+          grey: '#999999',
+          lightGrey: '#c0c0c0',
+          bone: '#3a3a3a',
+          red: '#c0c0c0',
+          'red-hover': '#a8a8a8',
+          accent: '#c0c0c0',
+          'accent-hover': '#a8a8a8',
         },
       },
       backgroundImage: {
-        'light-gradient': 'linear-gradient(to bottom, #ffffff, #f8f8f8)',
+        'dark-gradient': 'linear-gradient(to bottom, #2a2a2a, #333333)',
       },
       animation: {
         'reveal': 'reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -47,3 +50,4 @@ const config: Config = {
   plugins: [],
 }
 export default config
+

@@ -3,22 +3,24 @@
 @tailwind utilities;
 
 :root {
-  /* Levi's Inspired Light Theme Core */
-  --forge-white: #ffffff;
-  --forge-bone: #f8f8f8;
-  --forge-charcoal: #222222;
-  --forge-black: #000000;
+  /* Dark Gray Theme Core */
+  --forge-bg: #2a2a2a;
+  --forge-surface: #333333;
+  --forge-card: #3a3a3a;
+  --forge-border: rgba(255, 255, 255, 0.08);
 
-  /* Primary Accent: Levi's Red */
-  --brand-red: #c41230;
-  --brand-red-hover: #a00e27;
+  /* Accent: Light Gray */
+  --brand-accent: #c0c0c0;
+  --brand-accent-hover: #a8a8a8;
+
+  /* Text */
+  --text-primary: #f0f0f0;
+  --text-secondary: #999999;
+  --text-muted: #777777;
 
   /* System Tokens */
-  --foreground: var(--forge-black);
-  --background: var(--forge-white);
-  --card-bg: var(--forge-bone);
-  --border-color: rgba(0, 0, 0, 0.1);
-  --text-muted: #666666;
+  --foreground: var(--text-primary);
+  --background: var(--forge-bg);
 }
 
 * {
@@ -36,34 +38,39 @@ body {
 
 @layer base {
   body {
-    @apply bg-white text-black antialiased;
+    @apply antialiased;
+    background-color: var(--forge-bg);
+    color: var(--text-primary);
     font-feature-settings: "ss01", "ss02", "cv01", "cv02";
     font-family: 'Inter', sans-serif;
-    /* Retaining font-family */
   }
 
   ::selection {
-    @apply bg-black text-white;
+    background-color: var(--brand-accent);
+    color: var(--forge-bg);
   }
 }
 
-/* Custom Scrollbar for Light Theme */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-white;
+  background-color: var(--forge-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-black/10 hover:bg-black/20 transition-colors;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Minimalist Utilities */
 .premium-border {
-  border: 1px solid var(--border-color);
-  /* Updated to use new variable */
+  border: 1px solid var(--forge-border);
 }
 
 .text-balance {

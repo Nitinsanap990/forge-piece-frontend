@@ -17,7 +17,7 @@ export default function ShopPage() {
         : products.filter(p => p.category === activeCategory)
 
     return (
-        <div className="min-h-screen pt-40 pb-32 bg-white subtle-grain">
+        <div className="min-h-screen pt-40 pb-32 bg-forge-bg subtle-grain">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
@@ -25,14 +25,14 @@ export default function ShopPage() {
                         <motion.div
                             initial={{ opacity: 0, scaleX: 0 }}
                             animate={{ opacity: 1, scaleX: 1 }}
-                            className="h-px w-12 bg-forge-red origin-left"
+                            className="h-px w-12 bg-forge-accent origin-left"
                         ></motion.div>
                         <motion.h1
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-black leading-[0.8]"
+                            className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white leading-[0.8]"
                         >
-                            THE <span className="text-forge-red">FORGE</span> SHOP
+                            THE <span className="text-forge-accent">FORGE</span> SHOP
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 10 }}
@@ -48,7 +48,7 @@ export default function ShopPage() {
                     <div className="flex items-center gap-4">
                         <button
                             onClick={() => setShowFilters(!showFilters)}
-                            className="flex items-center gap-3 px-10 py-5 border border-black/10 bg-white text-black hover:bg-black hover:text-white transition-luxury text-[10px] font-bold tracking-[0.3em] uppercase shadow-sm"
+                            className="flex items-center gap-3 px-10 py-5 border border-white/10 bg-forge-surface text-white hover:bg-forge-accent hover:text-forge-bg transition-luxury text-[10px] font-bold tracking-[0.3em] uppercase shadow-sm"
                         >
                             <SlidersHorizontal size={14} />
                             Filter Pieces
@@ -57,14 +57,14 @@ export default function ShopPage() {
                 </div>
 
                 {/* Categories Bar */}
-                <div className="flex flex-wrap gap-4 mb-20 border-b border-black/5 pb-12">
+                <div className="flex flex-wrap gap-4 mb-20 border-b border-white/5 pb-12">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={`px-10 py-4 text-[10px] font-bold tracking-[0.3em] uppercase transition-luxury border rounded-none ${activeCategory === cat
-                                ? 'bg-forge-red border-forge-red text-white shadow-lg shadow-forge-red/20 scale-105'
-                                : 'bg-white text-black/40 hover:text-black border-black/5'
+                                ? 'bg-forge-accent border-forge-accent text-forge-bg shadow-lg scale-105'
+                                : 'bg-forge-surface text-white/40 hover:text-white border-white/5'
                                 }`}
                         >
                             {cat}
@@ -95,7 +95,7 @@ export default function ShopPage() {
 
                 {filteredProducts.length === 0 && (
                     <div className="text-center py-40">
-                        <p className="text-black/10 font-bold uppercase tracking-[0.5em] text-xs">Forging new pieces for this category shortly.</p>
+                        <p className="text-white/10 font-bold uppercase tracking-[0.5em] text-xs">Forging new pieces for this category shortly.</p>
                     </div>
                 )}
             </div>

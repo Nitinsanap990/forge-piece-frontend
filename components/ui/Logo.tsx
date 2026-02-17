@@ -25,7 +25,7 @@ export default function Logo({ variant = 'full', className = '', animated = true
           priority
         />
         {/* Hover Glow Effect */}
-        <div className="absolute inset-0 bg-forge-red/0 group-hover:bg-forge-red/5 rounded-full blur-2xl transition-all duration-700 -z-10" />
+        <div className="absolute inset-0 bg-forge-accent/0 group-hover:bg-forge-accent/5 rounded-full blur-2xl transition-all duration-700 -z-10" />
       </div>
     </div>
   )

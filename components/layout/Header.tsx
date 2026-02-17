@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ShoppingCart, Menu, X, Search, User } from 'lucide-react'
+import { ShoppingCart, Menu, X, User } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import { useCart } from '@/store/useCart'
 import CartDrawer from '@/components/cart/CartDrawer'
@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-white/95 backdrop-blur-md border-b border-black/5 py-4 shadow-sm'
+        ? 'bg-forge-bg/95 backdrop-blur-md border-b border-white/5 py-4 shadow-sm'
         : 'bg-transparent py-8'
         }`}
     >
@@ -52,9 +52,9 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[10px] font-bold tracking-[0.4em] uppercase transition-luxury hover:text-forge-red ${pathname === link.href
-                  ? 'text-forge-red border-b-2 border-forge-red pb-1'
-                  : 'text-black/60 hover:text-black'
+                className={`text-[10px] font-bold tracking-[0.4em] uppercase transition-luxury hover:text-forge-accent ${pathname === link.href
+                  ? 'text-forge-accent border-b-2 border-forge-accent pb-1'
+                  : 'text-white/60 hover:text-white'
                   }`}
               >
                 {link.label}
@@ -65,7 +65,7 @@ export default function Header() {
           {/* Right Side Icons */}
           <div className="flex items-center gap-6">
             <button
-              className="p-2 transition-luxury text-black/60 hover:text-black"
+              className="p-2 transition-luxury text-white/60 hover:text-white"
               aria-label="Account"
             >
               <User size={18} />
@@ -74,7 +74,7 @@ export default function Header() {
             {/* Cart Icon */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 transition-luxury text-black/60 hover:text-black"
+              className="relative p-2 transition-luxury text-white/60 hover:text-white"
               aria-label="Shopping Cart"
             >
               <ShoppingCart size={18} />
@@ -82,7 +82,7 @@ export default function Header() {
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-forge-red text-white text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center"
+                  className="absolute -top-1 -right-1 bg-forge-accent text-forge-bg text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center"
                 >
                   {totalItems}
                 </motion.span>
@@ -91,7 +91,7 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 transition-luxury text-black"
+              className="md:hidden p-2 transition-luxury text-white"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
@@ -112,11 +112,11 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed inset-0 top-0 bg-white z-[100] flex flex-col justify-center items-center"
+            className="md:hidden fixed inset-0 top-0 bg-forge-bg z-[100] flex flex-col justify-center items-center"
           >
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-8 right-8 text-black p-2"
+              className="absolute top-8 right-8 text-white p-2"
             >
               <X size={32} />
             </button>
@@ -131,7 +131,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl font-bold tracking-[0.4em] uppercase ${pathname === link.href ? 'text-forge-red' : 'text-black'}`}
+                    className={`text-2xl font-bold tracking-[0.4em] uppercase ${pathname === link.href ? 'text-forge-accent' : 'text-white'}`}
                   >
                     {link.label}
                   </Link>

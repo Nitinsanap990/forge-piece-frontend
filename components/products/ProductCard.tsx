@@ -19,11 +19,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="group relative bg-white overflow-hidden border border-black/5 hover:border-black/10 transition-luxury shadow-sm"
+      className="group relative bg-forge-card overflow-hidden border border-white/5 hover:border-white/10 transition-luxury shadow-sm"
     >
       {/* Image Container */}
       <Link href={`/shop/${product.slug}`}>
-        <div className="relative aspect-[4/5] bg-forge-bone overflow-hidden">
+        <div className="relative aspect-[4/5] bg-forge-surface overflow-hidden">
           {/* Product Image */}
           {product.images && product.images[0] && (
             <Image
@@ -36,8 +36,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           )}
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-luxury flex items-end p-6">
-            <button className="w-full bg-black text-white py-4 text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-luxury">
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-luxury flex items-end p-6">
+            <button className="w-full bg-forge-accent text-forge-bg py-4 text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-luxury">
               Quick Add
             </button>
           </div>
@@ -45,12 +45,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {discount > 0 && (
-              <span className="px-3 py-1 bg-forge-red text-white text-[9px] font-black tracking-widest uppercase shadow-md">
+              <span className="px-3 py-1 bg-forge-accent text-forge-bg text-[9px] font-black tracking-widest uppercase shadow-md">
                 {discount}% OFF
               </span>
             )}
             {product.featured && (
-              <span className="px-3 py-1 bg-black text-white text-[9px] font-bold tracking-widest uppercase">
+              <span className="px-3 py-1 bg-forge-surface text-white text-[9px] font-bold tracking-widest uppercase">
                 New Arrival
               </span>
             )}
@@ -66,7 +66,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           >
             <Heart
               size={18}
-              className={`transition-colors ${isWishlisted ? 'fill-forge-red text-forge-red' : 'text-black/40 hover:text-black'
+              className={`transition-colors ${isWishlisted ? 'fill-forge-accent text-forge-accent' : 'text-white/40 hover:text-white'
                 }`}
             />
           </button>
@@ -77,7 +77,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="p-6 space-y-4">
         <div className="space-y-1">
           <Link href={`/shop/${product.slug}`}>
-            <h3 className="text-black text-xs font-bold tracking-widest uppercase hover:text-forge-red transition-colors">
+            <h3 className="text-white text-xs font-bold tracking-widest uppercase hover:text-forge-accent transition-colors">
               {product.name}
             </h3>
           </Link>
@@ -85,14 +85,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Price & GSM */}
-        <div className="flex items-center justify-between pt-4 border-t border-black/5">
+        <div className="flex items-center justify-between pt-4 border-t border-white/5">
           <div className="flex items-baseline gap-2">
-            <span className="text-sm font-black text-black">₹{product.price}</span>
+            <span className="text-sm font-black text-white">₹{product.price}</span>
             {product.mrp > product.price && (
               <span className="text-[10px] text-forge-grey line-through font-medium">₹{product.mrp}</span>
             )}
           </div>
-          <span className="text-[9px] text-forge-red font-black tracking-widest uppercase">{product.gsm}</span>
+          <span className="text-[9px] text-forge-accent font-black tracking-widest uppercase">{product.gsm}</span>
         </div>
       </div>
     </motion.div>

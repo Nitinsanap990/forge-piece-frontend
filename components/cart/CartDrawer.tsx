@@ -46,19 +46,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed top-0 right-0 h-screen w-full sm:w-[500px] bg-white border-l border-black/5 z-[101] flex flex-col shadow-2xl"
+                        className="fixed top-0 right-0 h-screen w-full sm:w-[500px] bg-forge-bg border-l border-white/5 z-[101] flex flex-col shadow-2xl"
                     >
                         {/* Header */}
-                        <div className="p-8 border-b border-black/5 flex items-center justify-between">
+                        <div className="p-8 border-b border-white/5 flex items-center justify-between">
                             <div className="flex items-center gap-4">
-                                <h2 className="text-2xl font-black tracking-tighter text-black uppercase">Cart</h2>
-                                <span className="px-3 py-1 bg-forge-red text-white text-[10px] font-black tracking-widest uppercase shadow-md">
+                                <h2 className="text-2xl font-black tracking-tighter text-white uppercase">Cart</h2>
+                                <span className="px-3 py-1 bg-forge-accent text-forge-bg text-[10px] font-black tracking-widest uppercase shadow-md">
                                     {getItemCount()} Pieces
                                 </span>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="p-2 hover:bg-black/5 transition-luxury text-black/40 hover:text-black"
+                                className="p-2 hover:bg-white/5 transition-luxury text-white/40 hover:text-white"
                             >
                                 <X size={24} />
                             </button>
@@ -68,19 +68,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         <div className="flex-1 overflow-y-auto p-8 space-y-10 subtle-grain">
                             {items.length === 0 ? (
                                 <div className="h-full flex flex-col items-center justify-center text-center space-y-8">
-                                    <div className="w-20 h-20 bg-forge-bone flex items-center justify-center rounded-none border border-black/5 shadow-inner">
-                                        <ShoppingCart size={32} className="text-black/10" />
+                                    <div className="w-20 h-20 bg-forge-card flex items-center justify-center rounded-none border border-white/5 shadow-inner">
+                                        <ShoppingCart size={32} className="text-white/10" />
                                     </div>
                                     <div className="space-y-4">
-                                        <p className="text-black text-lg font-black tracking-widest uppercase">Your selection is empty</p>
+                                        <p className="text-white text-lg font-black tracking-widest uppercase">Your selection is empty</p>
                                         <p className="text-forge-grey text-xs tracking-widest uppercase max-w-[250px] mx-auto">Build your mindset with Forge Piece essentials.</p>
-                                        <button onClick={onClose} className="mt-8 px-10 py-4 bg-black text-white text-[10px] uppercase font-black tracking-[0.2em] shadow-lg hover:bg-forge-red transition-luxury">Explore Shop</button>
+                                        <button onClick={onClose} className="mt-8 px-10 py-4 bg-forge-accent text-forge-bg text-[10px] uppercase font-black tracking-[0.2em] shadow-lg hover:bg-forge-accent-hover transition-luxury">Explore Shop</button>
                                     </div>
                                 </div>
                             ) : (
                                 items.map((item) => (
                                     <div key={`${item.product.id}-${item.size}-${item.color}`} className="flex gap-6 group">
-                                        <div className="w-24 h-32 bg-forge-bone relative overflow-hidden border border-black/5 shadow-sm">
+                                        <div className="w-24 h-32 bg-forge-card relative overflow-hidden border border-white/5 shadow-sm">
                                             {item.product.images[0] ? (
                                                 <Image
                                                     src={item.product.images[0]}
@@ -90,46 +90,46 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                                     sizes="96px"
                                                 />
                                             ) : (
-                                                <span className="font-black text-black/5 uppercase text-[10px]">Piece</span>
+                                                <span className="font-black text-white/5 uppercase text-[10px]">Piece</span>
                                             )}
                                         </div>
 
                                         <div className="flex-1 flex flex-col justify-between py-1">
                                             <div className="space-y-1">
                                                 <div className="flex justify-between items-start">
-                                                    <h3 className="text-xs font-black tracking-widest text-black uppercase group-hover:text-forge-red transition-colors">
+                                                    <h3 className="text-xs font-black tracking-widest text-white uppercase group-hover:text-forge-accent transition-colors">
                                                         {item.product.name}
                                                     </h3>
                                                     <button
                                                         onClick={() => removeItem(item.product.id, item.size, item.color)}
-                                                        className="text-black/20 hover:text-black transition-colors"
+                                                        className="text-white/20 hover:text-white transition-colors"
                                                     >
                                                         <Trash2 size={16} />
                                                     </button>
                                                 </div>
                                                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-forge-grey font-bold tracking-widest uppercase">
-                                                    <span className="text-forge-red">Size: {item.size}</span>
+                                                    <span className="text-forge-accent">Size: {item.size}</span>
                                                     <span>{item.color}</span>
                                                 </div>
                                             </div>
 
                                             <div className="flex items-center justify-between">
-                                                <div className="flex items-center border border-black/10 bg-white shadow-sm">
+                                                <div className="flex items-center border border-white/10 bg-forge-surface shadow-sm">
                                                     <button
                                                         onClick={() => updateQuantity(item.product.id, item.size, item.color, item.quantity - 1)}
-                                                        className="p-1.5 hover:bg-black/5 text-black transition-colors"
+                                                        className="p-1.5 hover:bg-white/5 text-white transition-colors"
                                                     >
                                                         <Minus size={14} />
                                                     </button>
-                                                    <span className="w-4 text-center text-xs font-black text-black">{item.quantity}</span>
+                                                    <span className="w-4 text-center text-xs font-black text-white">{item.quantity}</span>
                                                     <button
                                                         onClick={() => updateQuantity(item.product.id, item.size, item.color, item.quantity + 1)}
-                                                        className="p-1.5 hover:bg-black/5 text-black transition-colors"
+                                                        className="p-1.5 hover:bg-white/5 text-white transition-colors"
                                                     >
                                                         <Plus size={14} />
                                                     </button>
                                                 </div>
-                                                <span className="text-sm font-black text-black uppercase tracking-widest">₹{item.product.price * item.quantity}</span>
+                                                <span className="text-sm font-black text-white uppercase tracking-widest">₹{item.product.price * item.quantity}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -139,22 +139,22 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                         {/* Footer */}
                         {items.length > 0 && (
-                            <div className="p-10 border-t border-black/5 bg-forge-bone shadow-2xl space-y-8">
+                            <div className="p-10 border-t border-white/5 bg-forge-card shadow-2xl space-y-8">
                                 {!showCheckoutForm ? (
                                     <>
                                         <div className="space-y-4">
-                                            <div className="flex justify-between text-[10px] tracking-[0.3em] uppercase font-black text-black/40">
+                                            <div className="flex justify-between text-[10px] tracking-[0.3em] uppercase font-black text-white/40">
                                                 <span>Subtotal</span>
                                                 <span>₹{getTotalPrice()}</span>
                                             </div>
-                                            <div className="flex justify-between text-lg tracking-[0.2em] font-black text-black uppercase pt-4 border-t border-black/5">
+                                            <div className="flex justify-between text-lg tracking-[0.2em] font-black text-white uppercase pt-4 border-t border-white/5">
                                                 <span>Total</span>
-                                                <span className="text-forge-red">₹{getTotalPrice()}</span>
+                                                <span className="text-forge-accent">₹{getTotalPrice()}</span>
                                             </div>
                                         </div>
                                         <button
                                             onClick={() => setShowCheckoutForm(true)}
-                                            className="w-full bg-forge-red text-white py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-forge-red-hover transition-luxury active:scale-[0.98] shadow-xl shadow-forge-red/20 flex items-center justify-center gap-4"
+                                            className="w-full bg-forge-accent text-forge-bg py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-forge-accent-hover transition-luxury active:scale-[0.98] shadow-xl flex items-center justify-center gap-4"
                                         >
                                             Process Checkout <Send size={14} />
                                         </button>
@@ -162,11 +162,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                 ) : (
                                     <form onSubmit={handleCheckout} className="space-y-8">
                                         <div className="flex items-center justify-between">
-                                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Checkout Details</h3>
+                                            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Checkout Details</h3>
                                             <button
                                                 type="button"
                                                 onClick={() => setShowCheckoutForm(false)}
-                                                className="text-[10px] text-forge-red uppercase border-b-2 border-forge-red font-black hover:text-black hover:border-black transition-luxury"
+                                                className="text-[10px] text-forge-accent uppercase border-b-2 border-forge-accent font-black hover:text-white hover:border-white transition-luxury"
                                             >
                                                 Back to items
                                             </button>
@@ -179,7 +179,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                                     placeholder="FULL NAME"
                                                     value={userDetails.name}
                                                     onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
-                                                    className="w-full bg-white border border-black/10 p-5 text-[10px] font-black tracking-widest text-black outline-none focus:border-forge-red transition-all placeholder:text-black/20 uppercase"
+                                                    className="w-full bg-forge-surface border border-white/10 p-5 text-[10px] font-black tracking-widest text-white outline-none focus:border-forge-accent transition-all placeholder:text-white/20 uppercase"
                                                 />
                                             </div>
                                             <div className="relative">
@@ -189,7 +189,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                                     placeholder="EMAIL ADDRESS"
                                                     value={userDetails.email}
                                                     onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
-                                                    className="w-full bg-white border border-black/10 p-5 text-[10px] font-black tracking-widest text-black outline-none focus:border-forge-red transition-all placeholder:text-black/20 uppercase"
+                                                    className="w-full bg-forge-surface border border-white/10 p-5 text-[10px] font-black tracking-widest text-white outline-none focus:border-forge-accent transition-all placeholder:text-white/20 uppercase"
                                                 />
                                             </div>
                                             <div className="relative">
@@ -199,17 +199,17 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                                                     placeholder="WHATSAPP NUMBER"
                                                     value={userDetails.phone}
                                                     onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
-                                                    className="w-full bg-white border border-black/10 p-5 text-[10px] font-black tracking-widest text-black outline-none focus:border-forge-red transition-all placeholder:text-black/20 uppercase"
+                                                    className="w-full bg-forge-surface border border-white/10 p-5 text-[10px] font-black tracking-widest text-white outline-none focus:border-forge-accent transition-all placeholder:text-white/20 uppercase"
                                                 />
                                             </div>
                                         </div>
                                         <button
                                             type="submit"
-                                            className="w-full bg-forge-red text-white py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-forge-red-hover transition-luxury shadow-xl shadow-forge-red/20 flex items-center justify-center gap-4"
+                                            className="w-full bg-forge-accent text-forge-bg py-6 text-xs font-black tracking-[0.3em] uppercase hover:bg-forge-accent-hover transition-luxury shadow-xl flex items-center justify-center gap-4"
                                         >
                                             Complete on WhatsApp <Send size={14} />
                                         </button>
-                                        <p className="text-[9px] text-black/40 text-center uppercase tracking-widest font-black">
+                                        <p className="text-[9px] text-white/40 text-center uppercase tracking-widest font-black">
                                             Mumbai Delivery: 24-48 Hours
                                         </p>
                                     </form>

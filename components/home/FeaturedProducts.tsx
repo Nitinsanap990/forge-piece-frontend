@@ -9,7 +9,7 @@ export default function FeaturedProducts() {
   const featuredProducts = products.filter(p => p.featured).slice(0, 6)
 
   return (
-    <section className="py-32 relative bg-white overflow-hidden subtle-grain border-y border-black/5">
+    <section className="py-32 relative bg-forge-bg overflow-hidden subtle-grain border-y border-white/5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,16 +19,16 @@ export default function FeaturedProducts() {
           className="text-center mb-24"
         >
           <div className="flex flex-col items-center gap-6">
-            <span className="text-[11px] font-black tracking-[0.5em] text-forge-red uppercase">
+            <span className="text-[11px] font-black tracking-[0.5em] text-forge-accent uppercase">
               Curated Selection
             </span>
-            <h2 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-black uppercase leading-[0.8]">
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-white uppercase leading-[0.8]">
               FEATURED DROPS
             </h2>
-            <div className="h-0.5 w-16 bg-forge-red"></div>
+            <div className="h-0.5 w-16 bg-forge-accent"></div>
             <p className="text-forge-grey text-lg sm:text-xl max-w-xl mx-auto leading-relaxed font-light italic">
               Meticulously forged streetwear engineering. <br />
-              <span className="text-black font-bold uppercase not-italic text-sm tracking-widest">200 GSM Premium Cotton • Heavyweight Standard</span>
+              <span className="text-white font-bold uppercase not-italic text-sm tracking-widest">200 GSM Premium Cotton &bull; Heavyweight Standard</span>
             </p>
           </div>
         </motion.div>
@@ -55,7 +55,7 @@ export default function FeaturedProducts() {
           className="text-center mt-24"
         >
           <Link href="/shop">
-            <button className="px-16 py-6 bg-black text-white text-[10px] font-black uppercase tracking-[0.4em] hover:bg-forge-red transition-luxury shadow-2xl shadow-black/20 hover:shadow-forge-red/30 active:scale-95">
+            <button className="px-16 py-6 bg-forge-accent text-forge-bg text-[10px] font-black uppercase tracking-[0.4em] hover:bg-forge-accent-hover transition-luxury shadow-2xl active:scale-95">
               Discover Full Collection
             </button>
           </Link>
