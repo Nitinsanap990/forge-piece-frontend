@@ -39,6 +39,8 @@
   --forge-text-label: #4B5563;
   --forge-highlight: rgb(226, 225, 225); 
    /* Highlight words: SHOWROOM, FORGE, MINDSET, SURFACE, PROCESS, PULSE  */
+  --forge-tagline: #d0f68a;
+   /* Tagline: FORGING A MINDSET, NOT JUST A FIT */
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
   --forge-accent: var(--forge-primary);
@@ -66,6 +68,8 @@
   --forge-text-label: #000000;
   --forge-highlight: #595454;     
     Highlight words: SHOWROOM, FORGE, MINDSET, SURFACE, PROCESS, PULSE 
+  --forge-tagline: #999999;
+    Tagline: FORGING A MINDSET, NOT JUST A FIT 
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
   --forge-accent: var(--forge-primary);
@@ -92,6 +96,7 @@
   --forge-text-inverse: #FAFAFA;
   --forge-text-label: #5A5A5A;
   --forge-highlight: #E0E0E0;
+  --forge-tagline: #757575;
   
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
@@ -119,6 +124,7 @@
   --forge-text-inverse: #0E0E0E;
   --forge-text-label: #ACACAC;
   --forge-highlight: #E5E5E5; 
+  --forge-tagline: #CCCCCC;
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
   --forge-accent: var(--forge-primary);
@@ -145,6 +151,7 @@
   --forge-text-inverse: #0A1628;
   --forge-text-label: #A5B4CC;
   --forge-highlight: #D8E1F0; 
+  --forge-tagline: #A5B4CC;
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
   --forge-accent: var(--forge-primary);
@@ -171,6 +178,7 @@
   --forge-text-inverse: #1E1E1E;
   --forge-text-label: #ABABAB;
   --forge-highlight: #CECECE; 
+  --forge-tagline: #ABABAB;
   
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
@@ -198,6 +206,7 @@
   --forge-text-inverse: #F8F7F4;
   --forge-text-label: #6B7A5F;
   --forge-highlight: #E8E4D9; 
+  --forge-tagline: #7A8972;
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
   --forge-accent: var(--forge-primary);

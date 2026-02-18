@@ -23,7 +23,7 @@ export default function ProductShowcase() {
                 autoPlay
                 muted
                 loop
-                className="absolute inset-0 w-full h-full object-cover opacity-100"
+                className="absolute inset-0 w-50 h-50 object-cover opacity-100"
                 style={{ minHeight: '100%' }}
             >
                 <source src="/resources/t-shirt-animation.mp4" type="video/mp4" />
@@ -46,7 +46,7 @@ export default function ProductShowcase() {
                         <span style={{ color: 'var(--forge-primary)' }}>FORGED</span>{' '}
                         <span style={{ color: 'var(--forge-secondary)' }}>PEACE</span>
                     </h2>
-                    <p className="text-lg max-w-xl mx-auto font-light italic">
+                    <p className="text-lg max-w-xl mx-auto font-light italic" style={{ color: 'var(--forge-tagline)' }}>
                         FORGING A MINDSET, NOT JUST A FIT.
                     </p>
                 </motion.div>
