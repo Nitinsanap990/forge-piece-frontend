@@ -5,46 +5,206 @@
 /* ============================================
    FORGE PIECE COLOR SYSTEM
    Change colors here to update entire website
+   ============================================ 
+   
+   HOW TO USE:
+   1. Scroll down to see 7 different theme options
+   2. Uncomment your preferred theme (remove the comment marks)
+   3. Comment out or delete the currently active theme
+   4. Save the file - changes apply instantly!
    ============================================ */
 
+
+
+/* ============================================
+   📦 BACKUP THEMES - Uncomment to activate
+   ============================================ */
+
+/* 
+   THEME 1: CLASSIC BLACK & WHITE (Original)
+   Clean, timeless, high contrast
+   -------------------------------------------- */
 :root {
-  /* ============================================
-     BACKGROUND COLORS
-     ============================================ */
-  --forge-bg: #FFFFFF;              /* Main page background */
-  --forge-surface: #F0F4F8;         /* Card/section surfaces */
-  --forge-card: #FFFFFF;            /* Card backgrounds */
-
-  /* ============================================
-     THEME COLORS
-     ============================================ */
-  --forge-primary: #000000;         /* Main brand color (Black) */
-  --forge-secondary: rgb(226, 225, 225);  /* Secondary accent (Light Grey) */
-
-  /* ============================================
-     TEXT COLORS
-     Update these to change text colors across the site
-     ============================================ */
-  --forge-text-heading: #000000;    /* Main headings (H1, H2, H3) */
-  --forge-text-body: #1F2937;       /* Body paragraphs & main content */
-  --forge-text-muted: #6B7280;      /* Subtle/secondary text */
-  --forge-text-emphasis: #000000;   /* Important/emphasized text */
-  --forge-text-link: #000000;       /* Links & interactive text */
-  --forge-text-inverse: #FFFFFF;    /* Text on dark backgrounds */
-  --forge-text-label: #4B5563;      /* Labels & form text */
-
-  /* Legacy text colors (for backward compatibility) */
+  --forge-bg: #FFFFFF;
+  --forge-surface: #F0F4F8;
+  --forge-card: #FFFFFF;
+  --forge-primary: #000000;
+  --forge-secondary: rgb(226, 225, 225);
+  --forge-text-heading: #000000;
+  --forge-text-body: #1F2937;
+  --forge-text-muted: #6B7280;
+  --forge-text-emphasis: #000000;
+  --forge-text-link: #000000;
+  --forge-text-inverse: #FFFFFF;
+  --forge-text-label: #4B5563;
+  --forge-highlight: rgb(226, 225, 225); 
+   /* Highlight words: SHOWROOM, FORGE, MINDSET, SURFACE, PROCESS, PULSE  */
   --forge-text: var(--forge-text-body);
   --forge-text-light: var(--forge-text-muted);
-  
-  /* ============================================
-     LEGACY SUPPORT
-     These map to the new colors
-     ============================================ */
   --forge-accent: var(--forge-primary);
   --forge-grey: var(--forge-secondary);
   --forge-dark: var(--forge-primary);
 }
+
+
+/* 
+   THEME 2: DARK LUXURY (Black & Gold)
+   Premium, sophisticated, high-end feel
+   -------------------------------------------- 
+:root {
+  --forge-bg: #e8e8e8;
+  --forge-surface: #1A1A1A;
+  --forge-card: #151515;
+  --forge-primary: #D4AF37;
+  --forge-secondary: #2A2A2A;
+  --forge-text-heading: #343232;
+  --forge-text-body: #161515;
+  --forge-text-muted: #211313;
+  --forge-text-emphasis: #D4AF37;
+  --forge-text-link: #E5C158;
+  --forge-text-inverse: #0D0D0D;
+  --forge-text-label: #000000;
+  --forge-highlight: #595454;     
+    Highlight words: SHOWROOM, FORGE, MINDSET, SURFACE, PROCESS, PULSE 
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
+
+/* 
+   THEME 3: MINIMALIST MONO (Off-White & Charcoal)
+   Clean, minimal, Scandinavian aesthetic
+   -------------------------------------------- 
+:root {
+  --forge-bg: #FAFAFA;
+  --forge-surface: #F5F5F5;
+  --forge-card: #FFFFFF;
+  --forge-primary: #2C2C2C;
+  --forge-secondary: #E0E0E0;
+  --forge-text-heading: #1A1A1A;
+  --forge-text-body: #3D3D3D;
+  --forge-text-muted: #757575;
+  --forge-text-emphasis: #000000;
+  --forge-text-link: #2C2C2C;
+  --forge-text-inverse: #FAFAFA;
+  --forge-text-label: #5A5A5A;
+  --forge-highlight: #E0E0E0;
+  
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
+
+/* 
+   THEME 4: STREET BOLD (Black & Electric Red)
+   Aggressive, energetic, street culture
+   -------------------------------------------- 
+:root {
+  --forge-bg: #0E0E0E;
+  --forge-surface: #1C1C1C;
+  --forge-card: #161616;
+  --forge-primary: #FF0000;
+  --forge-secondary: #E5E5E5;
+  --forge-text-heading: #FFFFFF;
+  --forge-text-body: #D4D4D4;
+  --forge-text-muted: #909090;
+  --forge-text-emphasis: #FF0000;
+  --forge-text-link: #FF3333;
+  --forge-text-inverse: #0E0E0E;
+  --forge-text-label: #ACACAC;
+  --forge-highlight: #E5E5E5; 
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
+
+/* 
+   THEME 5: NAVY PREMIUM (Deep Navy & Silver)
+   Professional, trustworthy, refined
+   -------------------------------------------- 
+:root {
+  --forge-bg: #0A1628;
+  --forge-surface: #162843;
+  --forge-card: #1A2332;
+  --forge-primary: #C0C0C0;
+  --forge-secondary: #2A3F5F;
+  --forge-text-heading: #FFFFFF;
+  --forge-text-body: #D8E1F0;
+  --forge-text-muted: #8B9AB5;
+  --forge-text-emphasis: #E8E8E8;
+  --forge-text-link: #C0C0C0;
+  --forge-text-inverse: #0A1628;
+  --forge-text-label: #A5B4CC;
+  --forge-highlight: #D8E1F0; 
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
+
+/* 
+   THEME 6: CHARCOAL MODERN (Charcoal & Cyan)
+   Tech-inspired, modern, fresh
+   -------------------------------------------- 
+:root {
+  --forge-bg: #1E1E1E;
+  --forge-surface: #2A2A2A;
+  --forge-card: #252525;
+  --forge-primary: #00D9FF;
+  --forge-secondary: #3D3D3D;
+  --forge-text-heading: #FFFFFF;
+  --forge-text-body: #CECECE;
+  --forge-text-muted: #929292;
+  --forge-text-emphasis: #00D9FF;
+  --forge-text-link: #33E0FF;
+  --forge-text-inverse: #1E1E1E;
+  --forge-text-label: #ABABAB;
+  --forge-highlight: #CECECE; 
+  
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
+
+/* 
+   THEME 7: SAGE EARTH (Olive Green & Cream)
+   Natural, sustainable, organic vibe
+   -------------------------------------------- 
+:root {
+  --forge-bg: #F8F7F4;
+  --forge-surface: #EDEAE3;
+  --forge-card: #FFFFFF;
+  --forge-primary: #5C6E4A;
+  --forge-secondary: #E8E4D9;
+  --forge-text-heading: #2D3A23;
+  --forge-text-body: #4A5842;
+  --forge-text-muted: #7A8972;
+  --forge-text-emphasis: #3D4D31;
+  --forge-text-link: #5C6E4A;
+  --forge-text-inverse: #F8F7F4;
+  --forge-text-label: #6B7A5F;
+  --forge-highlight: #E8E4D9; 
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+*/
 
 * {
   box-sizing: border-box;

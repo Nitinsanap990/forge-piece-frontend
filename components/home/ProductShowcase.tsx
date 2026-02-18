@@ -26,9 +26,10 @@ export default function ProductShowcase() {
                     viewport={{ once: true }}
                     className="text-center"
                 >
-                    <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase mb-4 block">The Collection</span>
-                    <h2 className="text-5xl sm:text-7xl md:text-8xl font-black mb-4 uppercase tracking-tighter text-black leading-[0.8]">
-                        FORGED <span style={{ color: 'rgb(226, 225, 225)' }}>PEACE</span>
+                    <span className="text-[15px] font-black tracking-[0.6em] text-forge-accent uppercase mb-4 block">The Collection</span>
+                    <h2 className="text-5xl sm:text-7xl md:text-8xl font-black mb-4 uppercase tracking-tighter leading-[0.8]">
+                        <span style={{ color: 'var(--forge-primary)' }}>FORGED</span>{' '}
+                        <span style={{ color: 'var(--forge-secondary)' }}>PEACE</span>
                     </h2>
                     <p className="text-lg max-w-xl mx-auto font-light italic">
                         FORGING A MINDSET, NOT JUST A FIT.

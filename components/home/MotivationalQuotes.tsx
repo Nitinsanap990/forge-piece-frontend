@@ -40,7 +40,7 @@ export default function MotivationalQuotes() {
         >
           <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase mb-4 block">Philosophy</span>
           <h2 className="text-5xl sm:text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter text-black leading-[0.8]">
-            CRAFTING <br /> THE <span style={{ color: 'rgb(226, 225, 225)' }}>MINDSET</span>
+            CRAFTING <br /> THE <span style={{ color: 'var(--forge-highlight)' }}>MINDSET</span>
           </h2>
           <p className="text-black text-lg max-w-2xl mx-auto font-light italic">
             Words that fuel the engineering of your daily hustle.

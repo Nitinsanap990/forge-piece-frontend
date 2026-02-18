@@ -83,7 +83,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               <h3 className="text-black font-black text-base uppercase tracking-tight leading-tight truncate group-hover:text-forge-accent transition-colors">
                 {product.name}
               </h3>
-              <p className="text-[10px] font-bold uppercase tracking-widest mt-1" style={{ color: 'rgb(226, 225, 225)' }}>
+              <p className="text-[10px] font-bold uppercase tracking-widest mt-1" style={{ color: 'var(--forge-highlight)' }}>
                 {product.category}
               </p>
             </div>

@@ -50,7 +50,7 @@ export default function NewsletterSignup() {
                             </div>
                             <div className="space-y-4">
                                 <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-black leading-[0.85]">
-                                    JOIN THE <br /> <span style={{ color: 'rgb(226, 225, 225)' }}>FORGE</span> PULSE
+                                    JOIN THE <br /> <span style={{ color: 'var(--forge-highlight)' }}>FORGE</span> PULSE
                                 </h2>
                                 <p className="text-forge-grey text-lg font-light tracking-wide max-w-xl mx-auto italic">
                                     Be first in line for limited drops, exclusive engineering reveals, and forge mindset culture.

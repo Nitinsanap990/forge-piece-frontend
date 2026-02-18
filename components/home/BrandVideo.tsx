@@ -16,7 +16,7 @@ export default function BrandVideo() {
         >
           <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase mb-4 block">Cinematic Experience</span>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-black leading-[0.8]">
-            EXPERIENCE <br /> THE <span style={{ color: 'rgb(226, 225, 225)' }}>FORGE</span>
+            EXPERIENCE <br /> THE <span style={{ color: 'var(--forge-highlight)' }}>FORGE</span>
           </h2>
           <p className="text-black text-lg max-w-2xl mx-auto font-light italic">
             Visualizing the engineering journey from textile concept to urban masterpiece.
@@ -90,7 +90,7 @@ export default function BrandVideo() {
               <div className="space-y-4">
                 <span className="text-forge-accent font-black tracking-[0.8em] text-[10px] uppercase opacity-80 block">Coming Soon Teaser</span>
                 <h3 className="text-6xl md:text-8xl font-black text-black tracking-tighter uppercase leading-[0.8]">
-                  THE <span className="group-hover:scale-105 transition-luxury" style={{ color: 'rgb(226, 225, 225)' }}>PROCESS</span>
+                  THE <span className="group-hover:scale-105 transition-luxury" style={{ color: 'var(--forge-highlight)' }}>PROCESS</span>
                 </h3>
               </div>
               <p className="text-black text-lg font-light leading-relaxed italic">

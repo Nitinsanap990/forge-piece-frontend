@@ -42,7 +42,7 @@ export default function Showroom3D() {
                             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Virtual Engineering</span>
                         </div>
                         <h2 className="text-5xl md:text-7xl font-black text-black uppercase tracking-tighter leading-[0.85]">
-                            3D <span style={{ color: 'rgb(226, 225, 225)' }}>SHOWROOM</span>
+                            3D <span style={{ color: 'var(--forge-highlight)' }}>SHOWROOM</span>
                         </h2>
                     </motion.div>
 
@@ -127,7 +127,7 @@ export default function Showroom3D() {
                             <div className="space-y-6">
                                 <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase block">Material Integrity</span>
                                 <h2 className="text-5xl md:text-6xl font-black text-black uppercase tracking-tighter leading-[0.85]">
-                                    BEYOND THE <br /> <span style={{ color: 'rgb(226, 225, 225)' }}>SURFACE</span>
+                                    BEYOND THE <br /> <span style={{ color: 'var(--forge-highlight)' }}>SURFACE</span>
                                 </h2>
                                 <p className="text-black text-lg font-light leading-relaxed">
                                     Our obsession with quality begins at the microscopic level. Every fiber is chosen for its ability to represent the Forge mindset.
