@@ -40,7 +40,7 @@ export default function ProductDetail() {
         setTimeout(() => setIsAdded(false), 2000)
     }
 
-    if (!product) return <div className="pt-40 text-center text-white">Product not found.</div>
+    if (!product) return <div className="pt-40 text-center text-black">Product not found.</div>
 
     const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100)
 
@@ -54,7 +54,7 @@ export default function ProductDetail() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6"
                     >
-                        <div className="aspect-[4/5] bg-forge-card border border-white/5 flex items-center justify-center relative group overflow-hidden shadow-sm cursor-pointer"
+                        <div className="aspect-[4/5] bg-white border border-black/5 flex items-center justify-center relative group overflow-hidden shadow-sm cursor-pointer"
                             onClick={() => {
                                 const imageIndex = product.images.indexOf(mainImage)
                                 setViewerIndex(imageIndex >= 0 ? imageIndex : 0)
@@ -71,21 +71,21 @@ export default function ProductDetail() {
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             ) : (
-                                <div className="text-6xl font-black text-white/5 uppercase tracking-tighter select-none">
+                                <div className="text-6xl font-black text-black/5 uppercase tracking-tighter select-none">
                                     Forge
                                 </div>
                             )}
 
                             {/* Expand Button */}
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-luxury flex items-center justify-center">
-                                <div className="opacity-0 group-hover:opacity-100 transition-opacity p-4 bg-forge-accent text-forge-bg shadow-2xl">
+                                <div className="opacity-0 group-hover:opacity-100 transition-opacity p-4 bg-black text-white shadow-2xl">
                                     <Maximize2 size={32} />
                                 </div>
                             </div>
 
                             {/* Luxury Label */}
-                            <div className="absolute top-8 right-8 px-5 py-2 bg-forge-surface/90 backdrop-blur-md border border-white/10 z-10 shadow-sm">
-                                <span className="text-[10px] text-white font-black tracking-[0.3em] uppercase">Premium Series</span>
+                            <div className="absolute top-8 right-8 px-5 py-2 bg-white/90 backdrop-blur-md border border-black/10 z-10 shadow-sm">
+                                <span className="text-[10px] text-black font-black tracking-[0.3em] uppercase">Premium Series</span>
                             </div>
                         </div>
 
@@ -95,7 +95,7 @@ export default function ProductDetail() {
                                     <button
                                         key={i}
                                         onClick={() => setMainImage(img)}
-                                        className={`aspect-square bg-forge-card border overflow-hidden hover:border-forge-accent transition-luxury relative shadow-sm ${mainImage === img ? 'border-forge-accent ring-1 ring-forge-accent' : 'border-white/5'
+                                        className={`aspect-square bg-white border overflow-hidden hover:border-forge-accent transition-luxury relative shadow-sm ${mainImage === img ? 'border-forge-accent ring-1 ring-forge-accent' : 'border-black/5'
                                             }`}
                                     >
                                         <Image
@@ -120,9 +120,9 @@ export default function ProductDetail() {
                             >
                                 <div className="flex items-center gap-3">
                                     <Play size={16} className="text-forge-accent" />
-                                    <h3 className="text-white font-black text-sm uppercase tracking-widest">360° Product View</h3>
+                                    <h3 className="text-black font-black text-sm uppercase tracking-widest">360° Product View</h3>
                                 </div>
-                                <div className="aspect-video bg-forge-card border border-white/5 overflow-hidden relative shadow-lg">
+                                <div className="aspect-video bg-white border border-black/5 overflow-hidden relative shadow-lg">
                                     <video
                                         src={product.video3d}
                                         controls
@@ -153,13 +153,13 @@ export default function ProductDetail() {
                                     100% Premium Cotton
                                 </span>
                             </div>
-                            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white tracking-tighter leading-[0.85] uppercase">
+                            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-black tracking-tighter leading-[0.85] uppercase">
                                 {product.name}
                             </h1>
                         </motion.div>
 
                         <div className="flex items-baseline gap-6">
-                            <span className="text-5xl font-black text-white">₹{product.price}</span>
+                            <span className="text-5xl font-black text-black">₹{product.price}</span>
                             {product.mrp > product.price && (
                                 <span className="text-xl text-forge-grey line-through font-medium">₹{product.mrp}</span>
                             )}
@@ -170,10 +170,10 @@ export default function ProductDetail() {
                         </p>
 
                         {/* Size Selection */}
-                        <div className="space-y-8 pt-8 border-t border-white/5">
+                        <div className="space-y-8 pt-8 border-t border-black/5">
                             <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-white/40">Select Size</span>
-                                <button className="text-[9px] text-white font-black uppercase tracking-widest hover:text-forge-accent transition-all flex items-center gap-2">
+                                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-black/40">Select Size</span>
+                                <button className="text-[9px] text-black font-black uppercase tracking-widest hover:text-black transition-all flex items-center gap-2">
                                     Size Guide <Info size={12} />
                                 </button>
                             </div>
@@ -184,10 +184,10 @@ export default function ProductDetail() {
                                         disabled={!s.inStock}
                                         onClick={() => setSelectedSize(s.size)}
                                         className={`w-16 h-16 flex items-center justify-center text-xs font-black tracking-widest transition-luxury rounded-none ${!s.inStock
-                                            ? 'text-white/10 cursor-not-allowed bg-white/[0.02]'
+                                            ? 'text-black/10 cursor-not-allowed bg-black/[0.02]'
                                             : selectedSize === s.size
-                                                ? 'bg-forge-accent text-forge-bg shadow-lg scale-110 z-10'
-                                                : 'bg-forge-surface text-white hover:border-white border border-white/10'
+                                                ? 'bg-black text-white shadow-lg scale-110 z-10'
+                                                : 'bg-white text-black hover:border-black border border-black/10'
                                             }`}
                                     >
                                         {s.size}
@@ -202,8 +202,8 @@ export default function ProductDetail() {
                                 onClick={handleAddToCart}
                                 disabled={isAdded}
                                 className={`flex-1 py-6 flex items-center justify-center gap-4 text-xs font-black tracking-[0.3em] uppercase transition-luxury active:scale-[0.98] shadow-xl ${isAdded
-                                    ? 'bg-forge-surface text-white'
-                                    : 'bg-forge-accent text-forge-bg hover:bg-forge-accent-hover'
+                                    ? 'bg-forge-bg text-black border border-black/5'
+                                    : 'bg-black text-white hover:bg-black/90'
                                     }`}
                             >
                                 {isAdded ? (
@@ -218,16 +218,16 @@ export default function ProductDetail() {
                             </button>
                             <button
                                 onClick={() => setIsWishlisted(!isWishlisted)}
-                                className="w-full sm:w-20 h-20 bg-forge-card border border-white/10 flex items-center justify-center hover:border-white transition-luxury group"
+                                className="w-full sm:w-20 h-20 bg-white border border-black/10 flex items-center justify-center hover:border-black transition-luxury group"
                             >
-                                <Heart size={20} className={`transition-luxury ${isWishlisted ? 'fill-forge-accent text-forge-accent scale-110' : 'text-white/20 group-hover:text-white'}`} />
+                                <Heart size={20} className={`transition-luxury ${isWishlisted ? 'fill-forge-accent text-forge-accent scale-110' : 'text-black/20 group-hover:text-black'}`} />
                             </button>
                         </div>
 
                         {/* Technical Specs */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-16 border-t border-white/5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 pt-16 border-t border-black/5">
                             <div className="space-y-6">
-                                <h4 className="text-[10px] font-black tracking-[0.4em] text-white/20 uppercase">Technical Specs</h4>
+                                <h4 className="text-[10px] font-black tracking-[0.4em] text-black/20 uppercase">Technical Specs</h4>
                                 <ul className="space-y-5">
                                     <li className="flex items-center gap-4 text-xs text-forge-grey uppercase tracking-widest font-medium">
                                         <ShieldCheck size={16} className="text-forge-accent" />
@@ -245,14 +245,14 @@ export default function ProductDetail() {
                             </div>
 
                             <div className="space-y-6">
-                                <h4 className="text-[10px] font-black tracking-[0.4em] text-white/20 uppercase">Logistics</h4>
+                                <h4 className="text-[10px] font-black tracking-[0.4em] text-black/20 uppercase">Logistics</h4>
                                 <div className="space-y-5">
                                     <div className="flex items-center gap-4 text-xs text-forge-grey uppercase tracking-widest font-medium">
-                                        <Truck size={16} className="text-white" />
+                                        <Truck size={16} className="text-black" />
                                         Pan-India Delivery
                                     </div>
                                     <div className="flex items-center gap-4 text-xs text-forge-grey uppercase tracking-widest font-medium">
-                                        <RotateCcw size={16} className="text-white" />
+                                        <RotateCcw size={16} className="text-black" />
                                         7-Day Easy Exchange
                                     </div>
                                 </div>
@@ -260,8 +260,8 @@ export default function ProductDetail() {
                         </div>
 
                         {/* Legal/Compliance */}
-                        <div className="py-10 border-t border-white/5 opacity-40">
-                            <div className="flex flex-wrap gap-8 text-[10px] text-white font-bold tracking-[0.3em] uppercase">
+                        <div className="py-10 border-t border-black/5 opacity-40">
+                            <div className="flex flex-wrap gap-8 text-[10px] text-black font-bold tracking-[0.3em] uppercase">
                                 <span>MRP Incl. of taxes</span>
                                 <span>Hustle in Mumbai</span>
                             </div>

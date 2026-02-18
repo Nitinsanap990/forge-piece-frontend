@@ -27,10 +27,10 @@ export default function ProductShowcase() {
                     className="text-center"
                 >
                     <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase mb-4 block">The Collection</span>
-                    <h2 className="text-5xl sm:text-7xl md:text-8xl font-black mb-4 uppercase tracking-tighter text-white leading-[0.8]">
-                        FORGED <span className="text-forge-accent">PIECES</span>
+                    <h2 className="text-5xl sm:text-7xl md:text-8xl font-black mb-4 uppercase tracking-tighter text-black leading-[0.8]">
+                        FORGED <span style={{ color: 'rgb(226, 225, 225)' }}>PEACE</span>
                     </h2>
-                    <p className="text-forge-grey text-lg max-w-xl mx-auto font-light italic">
+                    <p className="text-lg max-w-xl mx-auto font-light italic">
                         FORGING A MINDSET, NOT JUST A FIT.
                     </p>
                 </motion.div>
@@ -46,9 +46,9 @@ export default function ProductShowcase() {
                     {[...showcaseProducts, ...showcaseProducts].map((product, i) => (
                         <Link key={i} href="/shop" className="group relative flex-shrink-0 w-72 aspect-[3/4] bg-forge-card border border-white/5 overflow-hidden shadow-md hover:shadow-2xl transition-luxury">
                             <Image src={product.image} alt={product.name} fill className="object-cover transition-luxury group-hover:scale-105 opacity-80 group-hover:opacity-100" sizes="288px" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-forge-accent/20 via-transparent to-transparent"></div>
                             <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-                                <span className="text-[9px] font-black tracking-[0.3em] text-forge-accent uppercase">{product.tag}</span>
+                                <span className="text-[9px] font-black tracking-[0.3em] text-white uppercase">{product.tag}</span>
                                 <h3 className="text-white font-black text-lg uppercase tracking-tighter">{product.name}</h3>
                             </div>
                         </Link>
@@ -66,9 +66,9 @@ export default function ProductShowcase() {
                     {[...showcaseProducts.slice().reverse(), ...showcaseProducts.slice().reverse()].map((product, i) => (
                         <Link key={i} href="/shop" className="group relative flex-shrink-0 w-72 aspect-[3/4] bg-forge-card border border-white/5 overflow-hidden shadow-md hover:shadow-2xl transition-luxury">
                             <Image src={product.image} alt={product.name} fill className="object-cover transition-luxury group-hover:scale-105 opacity-80 group-hover:opacity-100" sizes="288px" />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-forge-accent/20 via-transparent to-transparent"></div>
                             <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-                                <span className="text-[9px] font-black tracking-[0.3em] text-forge-accent uppercase">{product.tag}</span>
+                                <span className="text-[9px] font-black tracking-[0.3em] text-white uppercase">{product.tag}</span>
                                 <h3 className="text-white font-black text-lg uppercase tracking-tighter">{product.name}</h3>
                             </div>
                         </Link>
@@ -76,14 +76,14 @@ export default function ProductShowcase() {
                 </motion.div>
             </div>
 
-            {/* Brand bar */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-center gap-6 py-8 border-t border-white/5">
-                    <span className="text-[10px] font-black tracking-[0.8em] text-white/20 uppercase">Forge Piece</span>
+                <div className="flex items-center justify-center gap-6 py-8 border-t border-black/5">
+                    <span className="text-[10px] font-black tracking-[0.8em] text-black/20 uppercase">Forge Piece</span>
                     <div className="w-2 h-2 bg-forge-accent"></div>
-                    <span className="text-[10px] font-black tracking-[0.8em] text-white/20 uppercase">Mumbai</span>
+                    <span className="text-[10px] font-black tracking-[0.8em] text-black/20 uppercase">Mumbai</span>
                 </div>
             </div>
         </section>
     )
 }
+

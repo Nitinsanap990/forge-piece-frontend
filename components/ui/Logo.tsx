@@ -11,7 +11,7 @@ interface LogoProps {
 }
 
 export default function Logo({ variant = 'full', className = '', animated = true }: LogoProps) {
-  const size = variant === 'full' ? 120 : 48
+  const size = variant === 'full' ? 360 : 140
 
   const logoContent = (
     <div className={`flex items-center justify-center ${className}`}>

@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-forge-surface border-t border-white/5 mt-48 py-24">
+    <footer className="bg-white border-t border-black/5 mt-48 py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
           {/* Brand Section */}
@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] mb-10 border-b border-white/10 pb-4">Navigation</h3>
+            <h3 className="text-[11px] font-black text-black uppercase tracking-[0.4em] mb-10 border-b border-black/10 pb-4">Navigation</h3>
             <ul className="space-y-5">
               {['Shop', 'About', 'Blog', 'Contact'].map((link) => (
                 <li key={link}>
@@ -42,11 +42,11 @@ export default function Footer() {
 
           {/* Legal & Support */}
           <div>
-            <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] mb-10 border-b border-white/10 pb-4">Engineering</h3>
+            <h3 className="text-[11px] font-black text-black uppercase tracking-[0.4em] mb-10 border-b border-black/10 pb-4">Engineering</h3>
             <ul className="space-y-5">
               {['Shipping Policy', 'Returns & Exchange', 'Privacy Policy', 'Terms of Service'].map((link) => (
                 <li key={link}>
-                  <Link href={`/${link.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="text-xs font-bold text-forge-grey hover:text-white tracking-widest transition-luxury uppercase">
+                  <Link href={`/${link.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="text-xs font-bold text-forge-grey hover:text-black tracking-widest transition-luxury uppercase">
                     {link}
                   </Link>
                 </li>
@@ -56,7 +56,7 @@ export default function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="text-[11px] font-black text-white uppercase tracking-[0.4em] mb-10 border-b border-white/10 pb-4">Connect</h3>
+            <h3 className="text-[11px] font-black text-black uppercase tracking-[0.4em] mb-10 border-b border-black/10 pb-4">Connect</h3>
             <ul className="space-y-8">
               <li>
                 <a
@@ -72,7 +72,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hello@forgepiece.com"
-                  className="flex items-center gap-4 text-xs font-bold text-forge-grey hover:text-white transition-luxury uppercase tracking-widest"
+                  className="flex items-center gap-4 text-xs font-bold text-forge-grey hover:text-black transition-luxury uppercase tracking-widest"
                 >
                   <Mail size={20} />
                   <span>Direct Mail</span>
@@ -89,17 +89,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-32 pt-16 border-t border-white/5 bg-forge-dark -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-12">
+        <div className="mt-32 pt-16 border-t border-black/5 bg-forge-surface -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="space-y-2 text-center md:text-left">
-              <p className="text-[10px] font-black tracking-[0.3em] text-white uppercase">
+              <p className="text-[10px] font-black tracking-[0.3em] text-black uppercase">
                 © {currentYear} FORGE PIECE APPAREL. ALL RIGHTS RESERVED.
               </p>
               <p className="text-[9px] text-forge-grey font-bold uppercase tracking-widest">Engineering urban resilience through high-density textiles.</p>
             </div>
 
             {/* Legal Metrology Compliance */}
-            <div className="text-[9px] text-white/30 text-center md:text-right space-y-2 font-black tracking-[0.2em] uppercase">
+            <div className="text-[9px] text-black/30 text-center md:text-right space-y-2 font-black tracking-[0.2em] uppercase">
               <p>Mfr: FORGE PIECE APPAREL LIMITED</p>
               <p>MAHARASHTRA, INDIA 400001</p>
               <p>1 UNIT BATCH | COTTON SERIES | ORIGIN: IN</p>

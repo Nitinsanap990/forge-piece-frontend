@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ShoppingCart, Menu, X, User } from 'lucide-react'
+import { ShoppingCart, Menu, X, Search, User } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 import { useCart } from '@/store/useCart'
 import CartDrawer from '@/components/cart/CartDrawer'
@@ -11,7 +11,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
@@ -19,43 +18,36 @@ export default function Header() {
 
   useEffect(() => {
     setMounted(true)
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/shop', label: 'Shop' },
-    { href: '/about', label: 'About' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'HOME' },
+    { href: '/shop', label: 'PRODUCTS' },
+    { href: '/about', label: 'ABOUT US' },
+    { href: '/blog', label: 'BLOG' },
+    { href: '/contact', label: 'CONTACT' },
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? 'bg-forge-bg/95 backdrop-blur-md border-b border-white/5 py-4 shadow-sm'
-        : 'bg-transparent py-8'
-        }`}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Logo />
+          <div className="flex-shrink-0">
+            <Logo variant="icon" />
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center space-x-10 absolute left-1/2 transform -translate-x-1/2">
             {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[10px] font-bold tracking-[0.4em] uppercase transition-luxury hover:text-forge-accent ${pathname === link.href
-                  ? 'text-forge-accent border-b-2 border-forge-accent pb-1'
-                  : 'text-white/60 hover:text-white'
-                  }`}
+                className={`text-sm font-semibold tracking-wide transition-colors ${
+                  pathname === link.href
+                    ? 'text-gray-900'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {link.label}
               </Link>
@@ -64,42 +56,43 @@ export default function Header() {
 
           {/* Right Side Icons */}
           <div className="flex items-center gap-6">
+            {/* Search Icon */}
             <button
-              className="p-2 transition-luxury text-white/60 hover:text-white"
+              className="hidden sm:block transition-colors text-gray-600 hover:text-gray-900"
+              aria-label="Search"
+            >
+              <Search size={20} />
+            </button>
+
+            {/* User Icon */}
+            <button
+              className="hidden sm:block transition-colors text-gray-600 hover:text-gray-900"
               aria-label="Account"
             >
-              <User size={18} />
+              <User size={20} />
             </button>
 
             {/* Cart Icon */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 transition-luxury text-white/60 hover:text-white"
+              className="relative transition-colors text-gray-600 hover:text-gray-900"
               aria-label="Shopping Cart"
             >
-              <ShoppingCart size={18} />
+              <ShoppingCart size={20} />
               {mounted && totalItems > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-forge-accent text-forge-bg text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center"
-                >
+                <span className="absolute -top-2 -right-2 bg-gray-900 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
                   {totalItems}
-                </motion.span>
+                </span>
               )}
             </button>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 transition-luxury text-white"
+              className="lg:hidden transition-colors text-gray-900"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
-              {isMenuOpen ? (
-                <X size={24} />
-              ) : (
-                <Menu size={24} />
-              )}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -109,33 +102,25 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed inset-0 top-0 bg-forge-bg z-[100] flex flex-col justify-center items-center"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white border-t border-gray-200"
           >
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-8 right-8 text-white p-2"
-            >
-              <X size={32} />
-            </button>
-            <nav className="flex flex-col items-center space-y-12">
-              {navLinks.map((link, i) => (
-                <motion.div
+            <nav className="px-6 py-4 space-y-4">
+              {navLinks.map(link => (
+                <Link
                   key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block text-sm font-semibold tracking-wide transition-colors ${
+                    pathname === link.href
+                      ? 'text-gray-900'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`text-2xl font-bold tracking-[0.4em] uppercase ${pathname === link.href ? 'text-forge-accent' : 'text-white'}`}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </motion.div>

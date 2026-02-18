@@ -2,25 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   FORGE PIECE COLOR SYSTEM
+   Change colors here to update entire website
+   ============================================ */
+
 :root {
-  /* Dark Gray Theme Core */
-  --forge-bg: #2a2a2a;
-  --forge-surface: #333333;
-  --forge-card: #3a3a3a;
-  --forge-border: rgba(255, 255, 255, 0.08);
-
-  /* Accent: Light Gray */
-  --brand-accent: #c0c0c0;
-  --brand-accent-hover: #a8a8a8;
-
-  /* Text */
-  --text-primary: #f0f0f0;
-  --text-secondary: #999999;
-  --text-muted: #777777;
-
-  /* System Tokens */
-  --foreground: var(--text-primary);
-  --background: var(--forge-bg);
+  /* Background Colors */
+  --forge-bg: #FFFFFF;              /* Main background (white) */
+  --forge-surface: #F8F8F8;         /* Card/surface background (light grey) */
+  --forge-card: #FFFFFF;            /* Card background (white) */
+  
+  /* Theme Colors - CHANGE THESE TO ADJUST YOUR THEME */
+  --forge-primary: #000000;         /* Primary color (black) - used for main accents */
+  --forge-secondary: rgb(226, 225, 225);  /* Secondary color (light grey) - used for highlights */
+  --forge-text: #1F2937;            /* Main text color (dark grey) */
+  --forge-text-light: #6B7280;     /* Light text color (medium grey) */
+  
+  /* Legacy support - these map to the new colors */
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
 }
 
 * {
@@ -36,64 +38,15 @@ body {
   scroll-behavior: smooth;
 }
 
-@layer base {
-  body {
-    @apply antialiased;
-    background-color: var(--forge-bg);
-    color: var(--text-primary);
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-    font-family: 'Inter', sans-serif;
-  }
-
-  ::selection {
-    background-color: var(--brand-accent);
-    color: var(--forge-bg);
-  }
+body {
+  background: var(--forge-bg);
+  color: var(--forge-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--forge-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Minimalist Utilities */
-.premium-border {
-  border: 1px solid var(--forge-border);
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.gallery-grid {
-  display: grid;
-  gap: 2rem;
-}
-
-/* Typography Enhancements */
-.font-sharp {
-  letter-spacing: -0.02em;
-}
-
-.tracking-premium {
-  letter-spacing: 0.15em;
-}
-
-/* Clean Transitions */
+/* Transition */
 .transition-luxury {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease-in-out;
 }
 
 /* Subtle Grain Texture */

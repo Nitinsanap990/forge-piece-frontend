@@ -9,8 +9,8 @@ export default function AboutPage() {
         <div className="min-h-screen pt-32 pb-20 bg-forge-bg subtle-grain">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Hero Section */}
-                <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mb-24 rounded-none border border-white/5 shadow-2xl">
-                    <div className="absolute inset-0 bg-forge-card z-0"></div>
+                <section className="relative h-[70vh] flex items-center justify-center overflow-hidden mb-24 rounded-none border border-black/5 shadow-2xl">
+                    <div className="absolute inset-0 bg-white z-0"></div>
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-forge-bg/80 z-10"></div>
                     <div className="relative z-20 text-center space-y-8 max-w-5xl px-4">
                         <motion.div
@@ -25,7 +25,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.8]"
+                            className="text-6xl md:text-8xl lg:text-9xl font-black text-black uppercase tracking-tighter leading-[0.8]"
                         >
                             WE ARE <br /> <span className="text-forge-accent">FORGE</span> SHOP
                         </motion.h1>
@@ -33,7 +33,7 @@ export default function AboutPage() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-forge-grey text-xl md:text-2xl font-light italic bg-forge-surface/50 backdrop-blur-sm inline-block px-4"
+                            className="text-black text-xl md:text-2xl font-light italic bg-white/50 backdrop-blur-sm inline-block px-4"
                         >
                             &quot;Forging a mindset, not just a fit.&quot;
                         </motion.p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
                         viewport={{ once: true }}
                         className="space-y-10"
                     >
-                        <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter text-white leading-[0.9]">The Blacksmith&apos;s <br /> <span className="text-forge-accent">Journey</span></h2>
+                        <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter text-black leading-[0.9]">The Blacksmith&apos;s <br /> <span className="text-forge-accent">Journey</span></h2>
                         <div className="space-y-8 text-forge-grey text-lg leading-relaxed font-light">
                             <p>
                                 Forge Piece wasn&apos;t born in a boardroom; it was born in the intense heat of a Mumbai printing press. Our roots lie deep in the craft of premium textile engineering, where precision meets urban passion.
@@ -99,8 +99,8 @@ export default function AboutPage() {
 
                 {/* The Experience Section */}
                 <section className="mb-48 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-forge-card/30 z-0"></div>
-                    <div className="relative z-10 py-24 px-4 md:px-12 border border-white/5">
+                    <div className="absolute inset-0 bg-white/30 z-0"></div>
+                    <div className="relative z-10 py-24 px-4 md:px-12 border border-black/5">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
@@ -116,18 +116,18 @@ export default function AboutPage() {
                                         className="h-px w-16 bg-forge-accent origin-left"
                                     ></motion.div>
                                     <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase block">The Core Standard</span>
-                                    <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85]">
+                                    <h2 className="text-5xl md:text-7xl font-black text-black uppercase tracking-tighter leading-[0.85]">
                                         THE <span className="text-forge-accent">EXPERIENCE</span>
                                     </h2>
                                 </div>
 
                                 <div className="space-y-8">
                                     <div className="flex gap-6 items-start">
-                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                        <div className="p-4 bg-white border border-black/10 text-forge-accent">
                                             <Layers size={24} />
                                         </div>
                                         <div className="space-y-2">
-                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">180 GSM Engineering</h3>
+                                            <h3 className="text-xl font-black text-black uppercase tracking-tight">180 GSM Engineering</h3>
                                             <p className="text-forge-grey font-light leading-relaxed">
                                                 Our signature 180 GSM fabric offers the perfect equilibrium between structured drape and breathable comfort. Not too heavy, never too light—engineered for the year-round hustle.
                                             </p>
@@ -135,11 +135,11 @@ export default function AboutPage() {
                                     </div>
 
                                     <div className="flex gap-6 items-start">
-                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                        <div className="p-4 bg-white border border-black/10 text-forge-accent">
                                             <Sparkles size={24} />
                                         </div>
                                         <div className="space-y-2">
-                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">100% Premium Cotton</h3>
+                                            <h3 className="text-xl font-black text-black uppercase tracking-tight">100% Premium Cotton</h3>
                                             <p className="text-forge-grey font-light leading-relaxed">
                                                 Sourced from the finest local mills, our 100% premium cotton undergoes a specialized softening process to ensure it stays soft on the skin while holding its integrity through every wash.
                                             </p>
@@ -147,11 +147,11 @@ export default function AboutPage() {
                                     </div>
 
                                     <div className="flex gap-6 items-start">
-                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                        <div className="p-4 bg-white border border-black/10 text-forge-accent">
                                             <Hammer size={24} />
                                         </div>
                                         <div className="space-y-2">
-                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">High-Density Printing</h3>
+                                            <h3 className="text-xl font-black text-black uppercase tracking-tight">High-Density Printing</h3>
                                             <p className="text-forge-grey font-light leading-relaxed">
                                                 We don&apos;t just print; we forge. Our high-density inks ensure vibrant, fade-resistant graphics with a tactile premium feel that lasts as long as the garment itself.
                                             </p>
@@ -168,7 +168,7 @@ export default function AboutPage() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: i * 0.1 }}
-                                        className="aspect-square relative group overflow-hidden border border-white/10 bg-forge-dark shadow-2xl"
+                                        className="aspect-square relative group overflow-hidden border border-black/10 bg-white shadow-2xl"
                                     >
                                         <Image
                                             src={`/quality/fabric-${num}.jpg`}
@@ -192,7 +192,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Cultural Context Section */}
-                <section className="mb-48 bg-forge-card p-16 md:p-32 border border-white/5 shadow-inner">
+                <section className="mb-48 bg-white p-16 md:p-32 border border-black/5 shadow-inner">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ export default function AboutPage() {
                         className="text-center max-w-4xl mx-auto space-y-8 mb-20"
                     >
                         <span className="text-xs font-black tracking-[0.5em] text-forge-accent uppercase">Evolution</span>
-                        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white leading-[0.85]">The Language of <br /> the Forge</h2>
+                        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-black leading-[0.85]">The Language of <br /> the Forge</h2>
                         <p className="text-forge-grey text-xl font-light leading-relaxed max-w-2xl mx-auto">
                             We curate vocabulary to celebrate the global communities that redefined modern self-expression through streetwear.
                         </p>
@@ -230,9 +230,9 @@ export default function AboutPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 viewport={{ once: true }}
-                                className="p-12 bg-forge-surface border border-white/5 hover:border-forge-accent/30 transition-luxury group shadow-sm hover:shadow-xl"
+                                className="p-12 bg-white border border-black/5 hover:border-forge-accent/30 transition-luxury group shadow-sm hover:shadow-xl"
                             >
-                                <h3 className="text-white font-black text-2xl tracking-tighter mb-4 group-hover:text-forge-accent transition-colors uppercase">{item.title}</h3>
+                                <h3 className="text-black font-black text-2xl tracking-tighter mb-4 group-hover:text-forge-accent transition-colors uppercase">{item.title}</h3>
                                 <div className="text-[10px] text-forge-accent uppercase tracking-[0.3em] mb-6 font-black">{item.origin}</div>
                                 <p className="text-forge-grey text-base leading-relaxed font-light">{item.desc}</p>
                             </motion.div>
@@ -241,7 +241,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Call to Action */}
-                <section className="relative p-12 md:p-32 bg-forge-dark overflow-hidden text-center space-y-12 mb-20">
+                <section className="relative p-12 md:p-32 bg-black overflow-hidden text-center space-y-12 mb-20">
                     <div className="absolute inset-0 bg-gradient-to-br from-forge-accent/10 to-transparent pointer-events-none"></div>
                     <Heart size={64} className="text-forge-accent mx-auto opacity-80 animate-pulse" />
                     <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter max-w-5xl mx-auto leading-[0.85]">
@@ -250,7 +250,7 @@ export default function AboutPage() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-forge-accent text-forge-bg px-16 py-6 text-sm font-black tracking-[0.4em] uppercase shadow-2xl hover:bg-forge-accent-hover transition-luxury"
+                        className="bg-white text-black px-16 py-6 text-sm font-black tracking-[0.4em] uppercase shadow-2xl hover:bg-white/90 transition-luxury"
                     >
                         View Collection
                     </motion.button>

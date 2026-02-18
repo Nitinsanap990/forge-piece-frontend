@@ -27,7 +27,7 @@ const showroomItems = [
 
 export default function Showroom3D() {
     return (
-        <section className="py-32 relative overflow-hidden bg-forge-bg subtle-grain border-y border-white/5">
+        <section className="py-32 relative overflow-hidden bg-forge-bg subtle-grain border-y border-black/5">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-20">
                     <motion.div
@@ -41,8 +41,8 @@ export default function Showroom3D() {
                             <Box size={18} />
                             <span className="text-[10px] font-black uppercase tracking-[0.4em]">Virtual Engineering</span>
                         </div>
-                        <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85]">
-                            3D <span className="text-forge-accent">SHOWROOM</span>
+                        <h2 className="text-5xl md:text-7xl font-black text-black uppercase tracking-tighter leading-[0.85]">
+                            3D <span style={{ color: 'rgb(226, 225, 225)' }}>SHOWROOM</span>
                         </h2>
                     </motion.div>
 
@@ -51,7 +51,7 @@ export default function Showroom3D() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="text-forge-grey text-lg font-light italic max-w-sm border-l border-white/10 pl-8"
+                        className="text-black text-lg font-light italic max-w-sm border-l border-black/10 pl-8"
                     >
                         Every piece is digitally forged and stressed before physical production. Experience the precision in 3D.
                     </motion.p>
@@ -67,24 +67,24 @@ export default function Showroom3D() {
                             viewport={{ once: true }}
                             className="group"
                         >
-                            <div className={`relative aspect-[3/4] ${item.color} border border-white/5 overflow-hidden shadow-sm group-hover:shadow-2xl transition-luxury flex flex-col items-center justify-center p-8`}>
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className={`relative aspect-[3/4] ${item.color} border border-black/5 overflow-hidden shadow-sm group-hover:shadow-2xl transition-luxury flex flex-col items-center justify-center p-8`}>
+                                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 <div className="relative z-10 text-center space-y-6">
                                     <motion.div
                                         animate={{ rotateY: 360 }}
                                         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                        className="w-40 h-40 mx-auto border-2 border-dashed border-white/10 rounded-full flex items-center justify-center"
+                                        className="w-40 h-40 mx-auto border-2 border-dashed border-black/10 rounded-full flex items-center justify-center"
                                     >
-                                        <Sparkles size={80} className="text-white/5" />
+                                        <Sparkles size={80} className="text-black/5" />
                                     </motion.div>
                                     <p className="text-[10px] font-black text-forge-grey uppercase tracking-widest">{item.videoPlaceholder}</p>
                                 </div>
-                                <div className="absolute bottom-6 right-6 p-4 bg-forge-surface text-white opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 cursor-pointer hover:bg-forge-accent hover:text-forge-bg">
+                                <div className="absolute bottom-6 right-6 p-4 bg-black text-white opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 cursor-pointer hover:bg-forge-accent">
                                     <Maximize2 size={16} />
                                 </div>
                             </div>
                             <div className="mt-6 space-y-2">
-                                <h4 className="text-white font-black uppercase text-lg tracking-tighter">{item.title}</h4>
+                                <h4 className="text-black font-black uppercase text-lg tracking-tighter">{item.title}</h4>
                                 <p className="text-[10px] font-bold text-forge-accent uppercase tracking-widest italic">{item.category}</p>
                             </div>
                         </motion.div>
@@ -92,7 +92,7 @@ export default function Showroom3D() {
                 </div>
 
                 {/* Fabric Experience Integration */}
-                <div className="mt-32 pt-32 border-t border-white/5">
+                <div className="mt-32 pt-32 border-t border-black/5">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                         <div className="grid grid-cols-2 gap-6 relative order-2 lg:order-1">
                             {[1, 2, 3, 4].map((num, i) => (
@@ -102,7 +102,7 @@ export default function Showroom3D() {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="aspect-square relative group overflow-hidden border border-white/10 bg-forge-card shadow-lg"
+                                    className="aspect-square relative group overflow-hidden border border-black/10 bg-forge-card shadow-lg"
                                 >
                                     <Image
                                         src={`/quality/fabric-${num}.jpg`}
@@ -111,7 +111,7 @@ export default function Showroom3D() {
                                         className="object-cover grayscale group-hover:grayscale-0 transition-luxury group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-forge-accent/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none"></div>
-                                    <div className="absolute top-4 right-4 bg-forge-dark/80 backdrop-blur-md border border-white/10 px-2 py-1">
+                                    <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-white/10 px-2 py-1">
                                         <span className="text-[8px] font-black text-white uppercase tracking-widest leading-none">FP-Q{num}</span>
                                     </div>
                                 </motion.div>
@@ -126,10 +126,10 @@ export default function Showroom3D() {
                         >
                             <div className="space-y-6">
                                 <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase block">Material Integrity</span>
-                                <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.85]">
-                                    BEYOND THE <br /> <span className="text-forge-accent">SURFACE</span>
+                                <h2 className="text-5xl md:text-6xl font-black text-black uppercase tracking-tighter leading-[0.85]">
+                                    BEYOND THE <br /> <span style={{ color: 'rgb(226, 225, 225)' }}>SURFACE</span>
                                 </h2>
-                                <p className="text-forge-grey text-lg font-light leading-relaxed">
+                                <p className="text-black text-lg font-light leading-relaxed">
                                     Our obsession with quality begins at the microscopic level. Every fiber is chosen for its ability to represent the Forge mindset.
                                 </p>
                             </div>
@@ -140,8 +140,8 @@ export default function Showroom3D() {
                                         <Layers size={20} />
                                     </div>
                                     <div className="space-y-1">
-                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">180 GSM Precision</h4>
-                                        <p className="text-forge-grey text-xs font-light leading-relaxed">Engineered for the perfect balance of weight and breathability.</p>
+                                        <h3 className="text-sm font-black text-black uppercase tracking-widest">180 GSM Precision</h3>
+                                        <p className="text-black text-xs font-light leading-relaxed">Engineered for the perfect balance of weight and breathability.</p>
                                     </div>
                                 </div>
 
@@ -150,8 +150,8 @@ export default function Showroom3D() {
                                         <Sparkles size={20} />
                                     </div>
                                     <div className="space-y-1">
-                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">100% Macro Cotton</h4>
-                                        <p className="text-forge-grey text-xs font-light leading-relaxed">Pure, long-staple cotton fibers for unparalleled softness and lifespan.</p>
+                                        <h3 className="text-sm font-black text-black uppercase tracking-widest">100% Macro Cotton</h3>
+                                        <p className="text-black text-xs font-light leading-relaxed">Pure, long-staple cotton fibers for unparalleled softness and lifespan.</p>
                                     </div>
                                 </div>
 
@@ -160,8 +160,8 @@ export default function Showroom3D() {
                                         <Hammer size={20} />
                                     </div>
                                     <div className="space-y-1">
-                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">Ink Fusion Tech</h4>
-                                        <p className="text-forge-grey text-xs font-light leading-relaxed">High-density printing that bonds with the fabric for zero cracking.</p>
+                                        <h3 className="text-sm font-black text-black uppercase tracking-widest">Ink Fusion Tech</h3>
+                                        <p className="text-black text-xs font-light leading-relaxed">High-density printing that bonds with the fabric for zero cracking.</p>
                                     </div>
                                 </div>
                             </div>

@@ -109,13 +109,13 @@ export default function ImageViewer({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-[200] bg-forge-dark/98 backdrop-blur-sm"
+                className="fixed inset-0 z-[200] bg-white/98 backdrop-blur-sm"
                 onClick={onClose}
             >
                 {/* Header */}
                 <div className="absolute top-0 left-0 right-0 z-10 p-6 flex items-center justify-between">
                     <div className="space-y-1">
-                        <h2 className="text-white font-black text-lg uppercase tracking-tighter">{productName}</h2>
+                        <h2 className="text-black font-black text-lg uppercase tracking-tighter">{productName}</h2>
                         <p className="text-forge-grey text-xs font-bold uppercase tracking-widest">
                             {currentIndex + 1} / {images.length}
                         </p>
@@ -123,7 +123,7 @@ export default function ImageViewer({
 
                     <button
                         onClick={onClose}
-                        className="p-3 bg-forge-surface hover:bg-forge-accent hover:text-forge-bg text-white transition-luxury"
+                        className="p-3 bg-black/5 hover:bg-black hover:text-white text-black transition-luxury"
                         aria-label="Close viewer"
                     >
                         <X size={24} />
@@ -172,7 +172,7 @@ export default function ImageViewer({
                                 e.stopPropagation()
                                 handlePrevious()
                             }}
-                            className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-forge-surface hover:bg-forge-accent hover:text-forge-bg text-white transition-luxury disabled:opacity-30"
+                            className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/80 backdrop-blur-md border border-black/5 hover:bg-black hover:text-white text-black transition-luxury disabled:opacity-30 shadow-xl"
                             aria-label="Previous image"
                         >
                             <ChevronLeft size={32} />
@@ -182,7 +182,7 @@ export default function ImageViewer({
                                 e.stopPropagation()
                                 handleNext()
                             }}
-                            className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-forge-surface hover:bg-forge-accent hover:text-forge-bg text-white transition-luxury"
+                            className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/80 backdrop-blur-md border border-black/5 hover:bg-black hover:text-white text-black transition-luxury shadow-xl"
                             aria-label="Next image"
                         >
                             <ChevronRight size={32} />
@@ -198,12 +198,12 @@ export default function ImageViewer({
                             handleZoomOut()
                         }}
                         disabled={scale <= 1}
-                        className="p-3 bg-forge-surface hover:bg-forge-accent hover:text-forge-bg text-white transition-luxury disabled:opacity-30 disabled:cursor-not-allowed"
+                        className="p-3 bg-white border border-black/5 hover:bg-black hover:text-white text-black transition-luxury disabled:opacity-30 disabled:cursor-not-allowed shadow-lg"
                         aria-label="Zoom out"
                     >
                         <ZoomOut size={20} />
                     </button>
-                    <div className="px-4 py-3 bg-forge-surface text-white text-xs font-black uppercase tracking-widest">
+                    <div className="px-4 py-3 bg-black text-white text-xs font-black uppercase tracking-widest shadow-lg">
                         {Math.round(scale * 100)}%
                     </div>
                     <button
@@ -212,7 +212,7 @@ export default function ImageViewer({
                             handleZoomIn()
                         }}
                         disabled={scale >= 3}
-                        className="p-3 bg-forge-surface hover:bg-forge-accent hover:text-forge-bg text-white transition-luxury disabled:opacity-30 disabled:cursor-not-allowed"
+                        className="p-3 bg-white border border-black/5 hover:bg-black hover:text-white text-black transition-luxury disabled:opacity-30 disabled:cursor-not-allowed shadow-lg"
                         aria-label="Zoom in"
                     >
                         <ZoomIn size={20} />
@@ -231,9 +231,9 @@ export default function ImageViewer({
                                     setScale(1)
                                     setPosition({ x: 0, y: 0 })
                                 }}
-                                className={`w-16 h-16 relative border-2 transition-luxury overflow-hidden ${idx === currentIndex
-                                        ? 'border-forge-accent ring-2 ring-forge-accent scale-110'
-                                        : 'border-white/20 hover:border-white/40'
+                                className={`w-16 h-16 relative border-2 transition-luxury overflow-hidden shadow-sm ${idx === currentIndex
+                                    ? 'border-forge-accent ring-2 ring-forge-accent scale-110 shadow-xl'
+                                    : 'border-black/10 hover:border-black/20'
                                     }`}
                             >
                                 <Image

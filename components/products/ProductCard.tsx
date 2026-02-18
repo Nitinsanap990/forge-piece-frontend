@@ -1,100 +1,121 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { ShoppingCart, Heart } from 'lucide-react'
-import { Product } from '@/types'
-import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { Product } from '@/types'
+import { Heart, Sparkles } from 'lucide-react'
+import { useState } from 'react'
 
 interface ProductCardProps {
   product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const [isWishlisted, setIsWishlisted] = useState(false)
-
+  const [isLiked, setIsLiked] = useState(false)
   const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100)
 
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className="group relative bg-forge-card overflow-hidden border border-white/5 hover:border-white/10 transition-luxury shadow-sm"
-    >
-      {/* Image Container */}
-      <Link href={`/shop/${product.slug}`}>
-        <div className="relative aspect-[4/5] bg-forge-surface overflow-hidden">
-          {/* Product Image */}
-          {product.images && product.images[0] && (
-            <Image
-              src={product.images[0]}
-              alt={product.name}
-              fill
-              className="object-cover transition-luxury group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          )}
+    <Link href={`/shop/${product.slug}`}>
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="group relative cursor-pointer"
+      >
+        {/* Image Container */}
+        <div className="relative aspect-[3/4] bg-white border border-black/5 overflow-hidden shadow-sm group-hover:shadow-2xl transition-luxury mb-6">
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            className="object-cover transition-luxury group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
 
-          {/* Hover overlay */}
-          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-luxury flex items-end p-6">
-            <button className="w-full bg-forge-accent text-forge-bg py-4 text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-luxury">
-              Quick Add
-            </button>
-          </div>
+          {/* Overlay on Hover */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-luxury"></div>
 
-          {/* Badges */}
-          <div className="absolute top-4 left-4 flex flex-col gap-2">
-            {discount > 0 && (
-              <span className="px-3 py-1 bg-forge-accent text-forge-bg text-[9px] font-black tracking-widest uppercase shadow-md">
-                {discount}% OFF
-              </span>
-            )}
-            {product.featured && (
-              <span className="px-3 py-1 bg-forge-surface text-white text-[9px] font-bold tracking-widest uppercase">
-                New Arrival
-              </span>
-            )}
-          </div>
-
-          {/* Wishlist Button */}
+          {/* Like Button */}
           <button
             onClick={(e) => {
               e.preventDefault()
-              setIsWishlisted(!isWishlisted)
+              setIsLiked(!isLiked)
             }}
-            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-luxury"
+            className="absolute top-4 right-4 p-3 bg-white/90 backdrop-blur-sm border border-black/10 shadow-md hover:bg-white transition-luxury z-10"
           >
             <Heart
               size={18}
-              className={`transition-colors ${isWishlisted ? 'fill-forge-accent text-forge-accent' : 'text-white/40 hover:text-white'
-                }`}
+              className={`transition-colors ${isLiked ? 'fill-black text-black' : 'text-black'}`}
             />
           </button>
-        </div>
-      </Link>
 
-      {/* Product Info */}
-      <div className="p-6 space-y-4">
-        <div className="space-y-1">
-          <Link href={`/shop/${product.slug}`}>
-            <h3 className="text-white text-xs font-bold tracking-widest uppercase hover:text-forge-accent transition-colors">
-              {product.name}
-            </h3>
-          </Link>
-          <p className="text-forge-grey text-[10px] uppercase tracking-widest font-medium">100% Cotton • Heavyweight</p>
-        </div>
-
-        {/* Price & GSM */}
-        <div className="flex items-center justify-between pt-4 border-t border-white/5">
-          <div className="flex items-baseline gap-2">
-            <span className="text-sm font-black text-white">₹{product.price}</span>
-            {product.mrp > product.price && (
-              <span className="text-[10px] text-forge-grey line-through font-medium">₹{product.mrp}</span>
+          {/* Badges */}
+          <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
+            {!product.inStock && (
+              <span className="px-3 py-1 bg-black text-white text-[9px] font-black uppercase tracking-widest shadow-md">
+                Sold Out
+              </span>
+            )}
+            {product.featured && product.inStock && (
+              <span className="px-3 py-1 bg-white text-black border border-black/10 text-[9px] font-black uppercase tracking-widest shadow-sm">
+                Featured
+              </span>
+            )}
+            {discount > 0 && product.inStock && (
+              <span className="px-3 py-1 bg-black text-white text-[9px] font-black uppercase tracking-widest shadow-md">
+                {discount}% Off
+              </span>
             )}
           </div>
-          <span className="text-[9px] text-forge-accent font-black tracking-widest uppercase">{product.gsm}</span>
+
+          {/* Quick View Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-luxury">
+            <div className="flex items-center justify-center gap-2 text-white">
+              <Sparkles size={14} />
+              <span className="text-[9px] font-black uppercase tracking-widest">View Details</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </motion.div>
+
+        {/* Product Info */}
+        <div className="space-y-3">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-black font-black text-base uppercase tracking-tight leading-tight truncate group-hover:text-forge-accent transition-colors">
+                {product.name}
+              </h3>
+              <p className="text-[10px] font-bold uppercase tracking-widest mt-1" style={{ color: 'rgb(226, 225, 225)' }}>
+                {product.category}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="text-black font-black text-lg">₹{product.price}</span>
+            {discount > 0 && (
+              <>
+                <span className="text-forge-grey text-sm line-through font-medium">₹{product.mrp}</span>
+                <span className="text-[9px] font-black uppercase tracking-widest text-black px-2 py-0.5 bg-black/5">
+                  Save {discount}%
+                </span>
+              </>
+            )}
+          </div>
+
+          <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-forge-grey">
+            <span>{product.gsm}</span>
+            <span>•</span>
+            <span>{product.fabric}</span>
+          </div>
+
+          {!product.inStock && (
+            <div className="pt-2">
+              <span className="text-[9px] font-black uppercase tracking-widest text-black/40">
+                Out of Stock
+              </span>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </Link>
   )
 }
