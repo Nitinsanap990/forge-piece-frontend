@@ -31,7 +31,7 @@ export default function ProductShowcase() {
                         FORGED <span className="text-forge-accent">PIECES</span>
                     </h2>
                     <p className="text-forge-grey text-lg max-w-xl mx-auto font-light italic">
-                        Engineered for durability. Designed for the bold.
+                        FORGING A MINDSET, NOT JUST A FIT.
                     </p>
                 </motion.div>
             </div>

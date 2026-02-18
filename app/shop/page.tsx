@@ -40,7 +40,7 @@ export default function ShopPage() {
                             transition={{ delay: 0.2 }}
                             className="text-forge-grey max-w-xl text-lg font-light leading-relaxed"
                         >
-                            Engineered for durability. Designed for the bold. <br />
+                            FORGING A MINDSET, NOT JUST A FIT. <br />
                             Premium 100% Cotton. 200 GSM Heavyweight.
                         </motion.p>
                     </div>

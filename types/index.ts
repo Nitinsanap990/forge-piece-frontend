@@ -15,6 +15,7 @@ export interface Product {
   inStock: boolean
   featured: boolean
   slug: string
+  video3d?: string // Optional 3D/360° product video URL
 }
 
 export interface Size {

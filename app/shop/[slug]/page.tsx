@@ -3,10 +3,11 @@
 import { useParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { products } from '@/data/products'
-import { ShoppingCart, Heart, ShieldCheck, Truck, RotateCcw, Info, Check } from 'lucide-react'
+import { ShoppingCart, Heart, ShieldCheck, Truck, RotateCcw, Info, Check, Maximize2, Play } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useCart } from '@/store/useCart'
 import Image from 'next/image'
+import ImageViewer from '@/components/ui/ImageViewer'
 
 export default function ProductDetail() {
     const { slug } = useParams()
@@ -16,6 +17,8 @@ export default function ProductDetail() {
     const [isAdded, setIsAdded] = useState(false)
     const [isWishlisted, setIsWishlisted] = useState(false)
     const [mainImage, setMainImage] = useState(product?.images[0] || '')
+    const [viewerOpen, setViewerOpen] = useState(false)
+    const [viewerIndex, setViewerIndex] = useState(0)
     const addItem = useCart((state) => state.addItem)
 
     useEffect(() => {
@@ -51,7 +54,13 @@ export default function ProductDetail() {
                         animate={{ opacity: 1, y: 0 }}
                         className="space-y-6"
                     >
-                        <div className="aspect-[4/5] bg-forge-card border border-white/5 flex items-center justify-center relative group overflow-hidden shadow-sm">
+                        <div className="aspect-[4/5] bg-forge-card border border-white/5 flex items-center justify-center relative group overflow-hidden shadow-sm cursor-pointer"
+                            onClick={() => {
+                                const imageIndex = product.images.indexOf(mainImage)
+                                setViewerIndex(imageIndex >= 0 ? imageIndex : 0)
+                                setViewerOpen(true)
+                            }}
+                        >
                             {mainImage ? (
                                 <Image
                                     src={mainImage}
@@ -66,6 +75,13 @@ export default function ProductDetail() {
                                     Forge
                                 </div>
                             )}
+
+                            {/* Expand Button */}
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-luxury flex items-center justify-center">
+                                <div className="opacity-0 group-hover:opacity-100 transition-opacity p-4 bg-forge-accent text-forge-bg shadow-2xl">
+                                    <Maximize2 size={32} />
+                                </div>
+                            </div>
 
                             {/* Luxury Label */}
                             <div className="absolute top-8 right-8 px-5 py-2 bg-forge-surface/90 backdrop-blur-md border border-white/10 z-10 shadow-sm">
@@ -92,6 +108,33 @@ export default function ProductDetail() {
                                     </button>
                                 ))}
                             </div>
+                        )}
+
+                        {/* 3D Video Section */}
+                        {product.video3d && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="mt-8 space-y-4"
+                            >
+                                <div className="flex items-center gap-3">
+                                    <Play size={16} className="text-forge-accent" />
+                                    <h3 className="text-white font-black text-sm uppercase tracking-widest">360° Product View</h3>
+                                </div>
+                                <div className="aspect-video bg-forge-card border border-white/5 overflow-hidden relative shadow-lg">
+                                    <video
+                                        src={product.video3d}
+                                        controls
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover"
+                                    >
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </motion.div>
                         )}
                     </motion.div>
 
@@ -225,6 +268,15 @@ export default function ProductDetail() {
                         </div>
                     </div>
                 </div>
+
+                {/* Fullscreen Image Viewer */}
+                <ImageViewer
+                    images={product.images}
+                    initialIndex={viewerIndex}
+                    isOpen={viewerOpen}
+                    onClose={() => setViewerOpen(false)}
+                    productName={product.name}
+                />
             </div>
         </div>
     )

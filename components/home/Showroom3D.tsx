@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, Box, Maximize2 } from 'lucide-react'
+import { Sparkles, Box, Maximize2, Layers, Hammer } from 'lucide-react'
+import Image from 'next/image'
 
 const showroomItems = [
     {
@@ -88,6 +89,84 @@ export default function Showroom3D() {
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                {/* Fabric Experience Integration */}
+                <div className="mt-32 pt-32 border-t border-white/5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                        <div className="grid grid-cols-2 gap-6 relative order-2 lg:order-1">
+                            {[1, 2, 3, 4].map((num, i) => (
+                                <motion.div
+                                    key={num}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="aspect-square relative group overflow-hidden border border-white/10 bg-forge-card shadow-lg"
+                                >
+                                    <Image
+                                        src={`/quality/fabric-${num}.jpg`}
+                                        alt={`Fabric Quality ${num}`}
+                                        fill
+                                        className="object-cover grayscale group-hover:grayscale-0 transition-luxury group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-forge-accent/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none"></div>
+                                    <div className="absolute top-4 right-4 bg-forge-dark/80 backdrop-blur-md border border-white/10 px-2 py-1">
+                                        <span className="text-[8px] font-black text-white uppercase tracking-widest leading-none">FP-Q{num}</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="space-y-12 order-1 lg:order-2"
+                        >
+                            <div className="space-y-6">
+                                <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase block">Material Integrity</span>
+                                <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.85]">
+                                    BEYOND THE <br /> <span className="text-forge-accent">SURFACE</span>
+                                </h2>
+                                <p className="text-forge-grey text-lg font-light leading-relaxed">
+                                    Our obsession with quality begins at the microscopic level. Every fiber is chosen for its ability to represent the Forge mindset.
+                                </p>
+                            </div>
+
+                            <div className="space-y-8">
+                                <div className="flex gap-6 items-start group">
+                                    <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent group-hover:bg-forge-accent group-hover:text-forge-bg transition-luxury">
+                                        <Layers size={20} />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">180 GSM Precision</h4>
+                                        <p className="text-forge-grey text-xs font-light leading-relaxed">Engineered for the perfect balance of weight and breathability.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-6 items-start group">
+                                    <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent group-hover:bg-forge-accent group-hover:text-forge-bg transition-luxury">
+                                        <Sparkles size={20} />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">100% Macro Cotton</h4>
+                                        <p className="text-forge-grey text-xs font-light leading-relaxed">Pure, long-staple cotton fibers for unparalleled softness and lifespan.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-6 items-start group">
+                                    <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent group-hover:bg-forge-accent group-hover:text-forge-bg transition-luxury">
+                                        <Hammer size={20} />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <h4 className="text-sm font-black text-white uppercase tracking-widest">Ink Fusion Tech</h4>
+                                        <p className="text-forge-grey text-xs font-light leading-relaxed">High-density printing that bonds with the fabric for zero cracking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, Hammer, ShieldCheck, Heart } from 'lucide-react'
+import { Sparkles, Hammer, ShieldCheck, Heart, Layers, MousePointer2, Smartphone } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AboutPage() {
     return (
@@ -95,6 +96,100 @@ export default function AboutPage() {
                         </div>
                     </motion.div>
                 </div>
+
+                {/* The Experience Section */}
+                <section className="mb-48 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-forge-card/30 z-0"></div>
+                    <div className="relative z-10 py-24 px-4 md:px-12 border border-white/5">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="space-y-12"
+                            >
+                                <div className="space-y-6">
+                                    <motion.div
+                                        initial={{ opacity: 0, scaleX: 0 }}
+                                        whileInView={{ opacity: 1, scaleX: 1 }}
+                                        viewport={{ once: true }}
+                                        className="h-px w-16 bg-forge-accent origin-left"
+                                    ></motion.div>
+                                    <span className="text-[10px] font-black tracking-[0.6em] text-forge-accent uppercase block">The Core Standard</span>
+                                    <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85]">
+                                        THE <span className="text-forge-accent">EXPERIENCE</span>
+                                    </h2>
+                                </div>
+
+                                <div className="space-y-8">
+                                    <div className="flex gap-6 items-start">
+                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                            <Layers size={24} />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">180 GSM Engineering</h3>
+                                            <p className="text-forge-grey font-light leading-relaxed">
+                                                Our signature 180 GSM fabric offers the perfect equilibrium between structured drape and breathable comfort. Not too heavy, never too light—engineered for the year-round hustle.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex gap-6 items-start">
+                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                            <Sparkles size={24} />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">100% Premium Cotton</h3>
+                                            <p className="text-forge-grey font-light leading-relaxed">
+                                                Sourced from the finest local mills, our 100% premium cotton undergoes a specialized softening process to ensure it stays soft on the skin while holding its integrity through every wash.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex gap-6 items-start">
+                                        <div className="p-4 bg-forge-surface border border-white/10 text-forge-accent">
+                                            <Hammer size={24} />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <h3 className="text-xl font-black text-white uppercase tracking-tight">High-Density Printing</h3>
+                                            <p className="text-forge-grey font-light leading-relaxed">
+                                                We don&apos;t just print; we forge. Our high-density inks ensure vibrant, fade-resistant graphics with a tactile premium feel that lasts as long as the garment itself.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            <div className="grid grid-cols-2 gap-6 relative">
+                                {[1, 2, 3, 4].map((num, i) => (
+                                    <motion.div
+                                        key={num}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className="aspect-square relative group overflow-hidden border border-white/10 bg-forge-dark shadow-2xl"
+                                    >
+                                        <Image
+                                            src={`/quality/fabric-${num}.jpg`}
+                                            alt={`Quality Detail ${num}`}
+                                            fill
+                                            className="object-cover grayscale group-hover:grayscale-0 transition-luxury group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-forge-accent/10 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none"></div>
+                                        <div className="absolute bottom-4 left-4">
+                                            <div className="bg-forge-dark/80 backdrop-blur-sm px-3 py-1 border border-white/10">
+                                                <span className="text-[8px] font-black text-white uppercase tracking-[0.2em]">QC PASS: FP-0{num}</span>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                                {/* Decorative Element */}
+                                <div className="absolute -z-10 -bottom-10 -right-10 w-40 h-40 bg-forge-accent/5 rounded-full blur-3xl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Cultural Context Section */}
                 <section className="mb-48 bg-forge-card p-16 md:p-32 border border-white/5 shadow-inner">
