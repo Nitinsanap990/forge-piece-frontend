@@ -17,8 +17,23 @@ const showcaseProducts = [
 
 export default function ProductShowcase() {
     return (
-        <section className="pt-32 pb-24 bg-forge-bg subtle-grain overflow-hidden">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <section className="pt-32 pb-24 bg-forge-bg subtle-grain overflow-hidden relative">
+            {/* Video Background */}
+            <video
+                autoPlay
+                muted
+                loop
+                className="absolute inset-0 w-full h-full object-cover opacity-100"
+                style={{ minHeight: '100%' }}
+            >
+                <source src="/resources/t-shirt-animation.mp4" type="video/mp4" />
+            </video>
+
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-black/20"></div>
+
+            {/* Content */}
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +53,7 @@ export default function ProductShowcase() {
             </div>
 
             {/* Row 1 - scrolling left */}
-            <div className="relative mb-8">
+            <div className="relative z-10 mb-8">
                 <motion.div
                     animate={{ x: ['0%', '-50%'] }}
                     transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 30, ease: 'linear' } }}
@@ -58,7 +73,7 @@ export default function ProductShowcase() {
             </div>
 
             {/* Row 2 - scrolling right */}
-            <div className="relative mb-16">
+            <div className="relative z-10 mb-16">
                 <motion.div
                     animate={{ x: ['-50%', '0%'] }}
                     transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 35, ease: 'linear' } }}
@@ -77,7 +92,7 @@ export default function ProductShowcase() {
                 </motion.div>
             </div>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex items-center justify-center gap-6 py-8 border-t border-black/5">
                     <span className="text-[10px] font-black tracking-[0.8em] text-black/20 uppercase">Forge Piece</span>
                     <div className="w-2 h-2 bg-forge-accent"></div>

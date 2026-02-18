@@ -95,20 +95,43 @@ export default function Showroom3D() {
                 <div className="mt-32 pt-32 border-t border-black/5">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                         <div className="grid grid-cols-2 gap-6 relative order-2 lg:order-1">
-                            {[1, 2, 3, 4].map((num, i) => (
+                            {/* First item - Video */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0 }}
+                                className="aspect-square relative group overflow-hidden border border-black/10 bg-forge-card shadow-lg"
+                            >
+                                <video
+                                    autoPlay
+                                    muted
+                                    loop
+                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-luxury"
+                                >
+                                    <source src="/resources/fabric-video.mp4" type="video/mp4" />
+                                </video>
+                                <div className="absolute inset-0 bg-forge-accent/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none"></div>
+                                <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-white/10 px-2 py-1">
+                                    <span className="text-[8px] font-black text-white uppercase tracking-widest leading-none">FP-Q1</span>
+                                </div>
+                            </motion.div>
+
+                            {/* Remaining items - Images */}
+                            {[2, 3, 4].map((num, i) => (
                                 <motion.div
                                     key={num}
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
+                                    transition={{ delay: (i + 1) * 0.1 }}
                                     className="aspect-square relative group overflow-hidden border border-black/10 bg-forge-card shadow-lg"
                                 >
                                     <Image
                                         src={`/quality/fabric-${num}.jpg`}
                                         alt={`Fabric Quality ${num}`}
                                         fill
-                                        className="object-cover grayscale group-hover:grayscale-0 transition-luxury group-hover:scale-110"
+                                        className="object-cover group-hover:scale-110 transition-luxury"
                                     />
                                     <div className="absolute inset-0 bg-forge-accent/5 opacity-0 group-hover:opacity-100 transition-luxury pointer-events-none"></div>
                                     <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-white/10 px-2 py-1">
