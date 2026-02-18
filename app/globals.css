@@ -8,18 +8,39 @@
    ============================================ */
 
 :root {
-  /* Background Colors */
-  --forge-bg: #FFFFFF;              /* Main background (white) */
-  --forge-surface: #F8F8F8;         /* Card/surface background (light grey) */
-  --forge-card: #FFFFFF;            /* Card background (white) */
+  /* ============================================
+     BACKGROUND COLORS
+     ============================================ */
+  --forge-bg: #FFFFFF;              /* Main page background */
+  --forge-surface: #F0F4F8;         /* Card/section surfaces */
+  --forge-card: #FFFFFF;            /* Card backgrounds */
+
+  /* ============================================
+     THEME COLORS
+     ============================================ */
+  --forge-primary: #000000;         /* Main brand color (Black) */
+  --forge-secondary: rgb(226, 225, 225);  /* Secondary accent (Light Grey) */
+
+  /* ============================================
+     TEXT COLORS
+     Update these to change text colors across the site
+     ============================================ */
+  --forge-text-heading: #000000;    /* Main headings (H1, H2, H3) */
+  --forge-text-body: #1F2937;       /* Body paragraphs & main content */
+  --forge-text-muted: #6B7280;      /* Subtle/secondary text */
+  --forge-text-emphasis: #000000;   /* Important/emphasized text */
+  --forge-text-link: #000000;       /* Links & interactive text */
+  --forge-text-inverse: #FFFFFF;    /* Text on dark backgrounds */
+  --forge-text-label: #4B5563;      /* Labels & form text */
+
+  /* Legacy text colors (for backward compatibility) */
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
   
-  /* Theme Colors - CHANGE THESE TO ADJUST YOUR THEME */
-  --forge-primary: #000000;         /* Primary color (black) - used for main accents */
-  --forge-secondary: rgb(226, 225, 225);  /* Secondary color (light grey) - used for highlights */
-  --forge-text: #1F2937;            /* Main text color (dark grey) */
-  --forge-text-light: #6B7280;     /* Light text color (medium grey) */
-  
-  /* Legacy support - these map to the new colors */
+  /* ============================================
+     LEGACY SUPPORT
+     These map to the new colors
+     ============================================ */
   --forge-accent: var(--forge-primary);
   --forge-grey: var(--forge-secondary);
   --forge-dark: var(--forge-primary);

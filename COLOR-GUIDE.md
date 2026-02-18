@@ -18,8 +18,15 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
   /* Theme Colors - CHANGE THESE TO ADJUST YOUR THEME */
   --forge-primary: #000000;         /* Primary color (black) - used for main accents */
   --forge-secondary: rgb(226, 225, 225);  /* Secondary color (light grey) - used for highlights */
-  --forge-text: #1F2937;            /* Main text color (dark grey) */
-  --forge-text-light: #6B7280;     /* Light text color (medium grey) */
+  
+  /* Text Colors - CHANGE THESE TO CONTROL ALL TEXT */
+  --forge-text-heading: #000000;    /* Main headings (H1, H2, H3) */
+  --forge-text-body: #1F2937;       /* Body paragraphs & main content */
+  --forge-text-muted: #6B7280;      /* Subtle/secondary text */
+  --forge-text-emphasis: #000000;   /* Important/emphasized text */
+  --forge-text-link: #000000;       /* Links & interactive text */
+  --forge-text-inverse: #FFFFFF;    /* Text on dark backgrounds */
+  --forge-text-label: #4B5563;      /* Labels & form text */
 }
 ```
 
@@ -31,8 +38,18 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
 |----------|---------------|----------|---------------|
 | `--forge-primary` | `#000000` (Black) | Main accent color, buttons, borders | Navbar buttons, category filters, icons |
 | `--forge-secondary` | `rgb(226, 225, 225)` (Light Grey) | Secondary highlights | "PCE", "SHOWROOM", "MINDSET" text highlights |
-| `--forge-text` | `#1F2937` (Dark Grey) | Main body text | Paragraph text, descriptions |
-| `--forge-text-light` | `#6B7280` (Medium Grey) | Secondary text | Helper text, labels |
+
+### Text Colors (Full control over all text elements)
+
+| Variable | Current Value | Used For | Where It Appears |
+|----------|---------------|----------|------------------|
+| `--forge-text-heading` | `#000000` (Black) | Main headings (H1, H2, H3) | Page titles, section headers |
+| `--forge-text-body` | `#1F2937` (Dark Grey) | Body paragraphs & main content | Descriptions, articles, long text |
+| `--forge-text-muted` | `#6B7280` (Medium Grey) | Subtle/secondary text | Helper text, metadata, captions |
+| `--forge-text-emphasis` | `#000000` (Black) | Important/emphasized text | Call-to-actions, highlights |
+| `--forge-text-link` | `#000000` (Black) | Links & interactive text | Navigation links, buttons |
+| `--forge-text-inverse` | `#FFFFFF` (White) | Text on dark backgrounds | Sliding showcase images |
+| `--forge-text-label` | `#4B5563` (Grey) | Labels & form text | Form labels, input placeholders |
 
 ### Background Colors
 
@@ -52,8 +69,13 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
   --forge-card: #2a2a2a;
   --forge-primary: #FFFFFF;
   --forge-secondary: #4a9eff;
-  --forge-text: #FFFFFF;
-  --forge-text-light: #a0a0a0;
+  --forge-text-heading: #FFFFFF;
+  --forge-text-body: #E5E5E5;
+  --forge-text-muted: #9CA3AF;
+  --forge-text-emphasis: #FFFFFF;
+  --forge-text-link: #4a9eff;
+  --forge-text-inverse: #1a1a1a;
+  --forge-text-label: #D1D5DB;
 }
 ```
 
@@ -65,8 +87,13 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
   --forge-card: #FFFFFF;
   --forge-primary: #2563EB;        /* Blue */
   --forge-secondary: #60A5FA;       /* Light Blue */
-  --forge-text: #1F2937;
-  --forge-text-light: #6B7280;
+  --forge-text-heading: #1E3A8A;
+  --forge-text-body: #1F2937;
+  --forge-text-muted: #6B7280;
+  --forge-text-emphasis: #2563EB;
+  --forge-text-link: #2563EB;
+  --forge-text-inverse: #FFFFFF;
+  --forge-text-label: #4B5563;
 }
 ```
 
@@ -78,8 +105,13 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
   --forge-card: #FFFFFF;
   --forge-primary: #DC2626;        /* Red */
   --forge-secondary: #FCA5A5;       /* Light Red */
-  --forge-text: #1F2937;
-  --forge-text-light: #6B7280;
+  --forge-text-heading: #991B1B;
+  --forge-text-body: #1F2937;
+  --forge-text-muted: #6B7280;
+  --forge-text-emphasis: #DC2626;
+  --forge-text-link: #DC2626;
+  --forge-text-inverse: #FFFFFF;
+  --forge-text-label: #4B5563;
 }
 ```
 
@@ -99,8 +131,17 @@ Open `app/globals.css` and find the `:root` section. Change any color value ther
 - Secondary accents
 
 ### Text Colors
-- `--forge-text`: Main paragraph text, descriptions, body content
-- `--forge-text-light`: Labels, helper text, secondary information
+- `--forge-text-heading`: Main page and section headings (H1, H2, H3 elements)
+- `--forge-text-body`: All body paragraphs, descriptions, long-form content
+- `--forge-text-muted`: Helper text, metadata, captions, supplementary info
+- `--forge-text-emphasis`: Important or emphasized content, call-to-action text
+- `--forge-text-link`: Navigation links, clickable text, interactive elements
+- `--forge-text-inverse`: Text displayed on dark backgrounds (product showcase overlays)
+- `--forge-text-label`: Form labels, input placeholders, small UI text
+
+### Legacy Text Variables (for backward compatibility)
+- `--forge-text`: Maps to `--forge-text-body` (main body text)
+- `--forge-text-light`: Maps to `--forge-text-muted` (secondary text)
 
 ## Tips
 
