@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   FORGE PIECE COLOR SYSTEM
+   Change colors here to update entire website
+   ============================================ */
+
+:root {
+  /* ============================================
+     BACKGROUND COLORS
+     ============================================ */
+  --forge-bg: #FFFFFF;              /* Main page background */
+  --forge-surface: #F0F4F8;         /* Card/section surfaces */
+  --forge-card: #FFFFFF;            /* Card backgrounds */
+
+  /* ============================================
+     THEME COLORS
+     ============================================ */
+  --forge-primary: #000000;         /* Main brand color (Black) */
+  --forge-secondary: rgb(226, 225, 225);  /* Secondary accent (Light Grey) */
+
+  /* ============================================
+     TEXT COLORS
+     Update these to change text colors across the site
+     ============================================ */
+  --forge-text-heading: #000000;    /* Main headings (H1, H2, H3) */
+  --forge-text-body: #1F2937;       /* Body paragraphs & main content */
+  --forge-text-muted: #6B7280;      /* Subtle/secondary text */
+  --forge-text-emphasis: #000000;   /* Important/emphasized text */
+  --forge-text-link: #000000;       /* Links & interactive text */
+  --forge-text-inverse: #FFFFFF;    /* Text on dark backgrounds */
+  --forge-text-label: #4B5563;      /* Labels & form text */
+
+  /* Legacy text colors (for backward compatibility) */
+  --forge-text: var(--forge-text-body);
+  --forge-text-light: var(--forge-text-muted);
+  
+  /* ============================================
+     LEGACY SUPPORT
+     These map to the new colors
+     ============================================ */
+  --forge-accent: var(--forge-primary);
+  --forge-grey: var(--forge-secondary);
+  --forge-dark: var(--forge-primary);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--forge-bg);
+  color: var(--forge-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Transition */
+.transition-luxury {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Subtle Grain Texture */
+.subtle-grain {
+  position: relative;
+}
+
+.subtle-grain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/baseFilter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
